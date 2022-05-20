@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 const StyledStaffCard = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   width: 100%;
   border-bottom: 2px solid gray;
   .image-wrapper {
@@ -14,6 +15,7 @@ const StyledStaffCard = styled.div`
   }
 
   .employee-info {
+    padding: 10px;
   }
   ul {
     list-style-type: none;

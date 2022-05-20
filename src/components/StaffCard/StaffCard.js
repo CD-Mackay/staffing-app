@@ -9,7 +9,7 @@ const StaffCard = ({ employee }) => {
         <div className="image-wrapper">
           <img src="images/ongo-gablogian.jpg" alt="ongo gablogian" />
         </div>
-        <div>
+        <div className="employee-info">
           <h4>name: {name}</h4>
           <p>Department: {department}</p>
         </div>
