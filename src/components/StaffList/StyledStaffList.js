@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
-const StyledStaffCard = styled.div`
+const StyledStaffCard = styled.section`
+
 `;
 
 export default StyledStaffCard;
