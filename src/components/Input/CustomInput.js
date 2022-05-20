@@ -7,7 +7,7 @@ import StyledCustomInput from "./StyledCustomInput";
 const CustomInput = () => {
   return (
     <StyledCustomInput>
-     I am Custom Input
+     I am Custom Input. One day I will add skills to the employee
     </StyledCustomInput>
   );
 };
