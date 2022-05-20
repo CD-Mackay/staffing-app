@@ -8,11 +8,9 @@ import StaffCard from "../StaffCard/StaffCard";
 const StaffList = ({ staff }) => {
   return (
     <StyledStaffList>
-      <ul>
       {staff.map((employee) => {
-          return <StaffCard name={employee.name} />;
+          return <StaffCard employee={employee} />;
         })}
-      </ul>
     </StyledStaffList>
   );
 };
