@@ -1,4 +1,5 @@
 import React from "react";
+import CustomInput from "../Input/CustomInput";
 
 import StyledStaffCard from "./styledStaffCard";
 
@@ -21,6 +22,7 @@ const StaffCard = ({ employee }) => {
           })}
         </ul>
       </div>
+      <CustomInput />
     </StyledStaffCard>
   );
 };
