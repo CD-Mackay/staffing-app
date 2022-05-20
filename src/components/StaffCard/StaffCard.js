@@ -14,6 +14,7 @@ const StaffCard = ({ employee }) => {
           <p>Department: {department}</p>
         </div>
         <div className="employee-info">
+          <p>Skills:</p>
         <ul>
           {skills.map((skill) => {
             return <li>{skill}</li>;
