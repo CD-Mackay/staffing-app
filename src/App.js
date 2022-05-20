@@ -4,12 +4,15 @@ import "./App.css";
 // Asset Imports
 import staff from "../src/utilities/dummy-data";
 
+// Component imports
+import StaffCard from "./components/StaffCard/StaffCard";
+
 function App() {
   return (
     <div className="App">
       <ul>
         {staff.map((employee) => {
-          return <li>{employee.name}</li>;
+          return <StaffCard name={employee.name} />;
         })}
       </ul>
     </div>
