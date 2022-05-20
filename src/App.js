@@ -8,9 +8,9 @@ import StaffList from "./components/StaffList/StaffList";
 
 function App() {
   return (
-    <div className="App">
-      <StaffList staff={staff} />
-    </div>
+      <div className="App">
+        <StaffList staff={staff} />
+      </div>
   );
 }
 
