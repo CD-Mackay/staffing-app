@@ -10,7 +10,7 @@ import SearchBar from "./components/SearchBar/SearchBar";
 
 function App() {
   const [searchValue, setSearchValue] = useState("");
-  const [parameter, setParameter] = useState("Name");
+  const [parameter, setParameter] = useState("name");
 
   return (
     <div className="App">
@@ -20,7 +20,7 @@ function App() {
         parameter={parameter}
         setParameter={setParameter}
       />
-      <StaffList staff={staff} searchValue={searchValue} />
+      <StaffList staff={staff} parameter={parameter} searchValue={searchValue} />
     </div>
   );
 }
