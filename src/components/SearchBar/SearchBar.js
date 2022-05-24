@@ -7,7 +7,7 @@ import StyledSearchBar from "./StyledSearchBar";
 const SearchBar = () => {
   return (
     <StyledSearchBar>
-      I am SearchBar
+      <input type="text" placeholder="Search for something!" />
     </StyledSearchBar>
   );
 };
