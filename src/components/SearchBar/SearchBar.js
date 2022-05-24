@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 
 import StyledSearchBar from "./StyledSearchBar";
 
 // Component Imports
 
-const SearchBar = () => {
-  const [parameter, setParameter] = useState("");
+const SearchBar = ({parameter, setParameter}) => {
+
 
   const onChange = (event) => {
     setParameter(event.target.value);
