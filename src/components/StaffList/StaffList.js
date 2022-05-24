@@ -5,12 +5,25 @@ import StyledStaffList from "./StyledStaffList";
 // Component Imports
 import StaffCard from "../StaffCard/StaffCard";
 
-const StaffList = ({ staff }) => {
+// Asset Imports
+import { filterByDept, filterByName } from "../../utilities/helpers";
+
+const StaffList = ({ staff, searchValue, parameter }) => {
+
+  const renderStaffList = () => {
+    if (parameter === "name" && searchValue) {
+      staff = filterByName(staff, searchValue);
+    }
+    if (parameter === "department" && searchValue) {
+      staff = filterByDept(staff, searchValue);
+    }
+    return staff.map((employee) => {
+      return <StaffCard key={employee.id} employee={employee} />;
+    })
+  }
   return (
     <StyledStaffList>
-      {staff.map((employee) => {
-          return <StaffCard employee={employee} />;
-        })}
+      {renderStaffList()}
     </StyledStaffList>
   );
 };
