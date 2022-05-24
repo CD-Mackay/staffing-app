@@ -10,6 +10,7 @@ const SearchBar = ({parameter, setParameter}) => {
   const onChange = (event) => {
     setParameter(event.target.value);
   };
+  
   return (
     <StyledSearchBar>
       <input type="text" value={parameter} onChange={onChange} placeholder="Search for something!" />

@@ -15,7 +15,7 @@ function App() {
   return (
       <div className="App">
         <SearchBar parameter={parameter} setParameter={setParameter} />
-        <StaffList staff={staff} />
+        <StaffList staff={staff} parameter={parameter} />
       </div>
   );
 }
