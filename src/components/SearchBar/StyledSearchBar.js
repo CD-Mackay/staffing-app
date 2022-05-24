@@ -3,11 +3,19 @@ import styled from 'styled-components';
 const StyledSearchBar = styled.div`
 width: 90%;
 margin: 0 auto;
-padding: 5px;
-display: flex;
+display: grid;
+grid-template-columns: 4fr 1fr;
+padding: 2px;
+justify-content: space-between;
 input {
-  width: 100%;
+  width: 90%;
   line-height: 1.5;
+  font-size: 22px;
+  border-radius: 5px;
+}
+
+#select-input {
+  display: flex;
 }
 `;
 
