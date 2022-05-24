@@ -22,7 +22,7 @@ const StaffList = ({ staff, searchValue, parameter }) => {
     })
   }
   return (
-    <StyledStaffList>
+    <StyledStaffList data-testid="staff-list">
       {renderStaffList()}
     </StyledStaffList>
   );
