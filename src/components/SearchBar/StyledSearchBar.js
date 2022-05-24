@@ -7,6 +7,8 @@ display: grid;
 grid-template-columns: 4fr 1fr;
 padding: 2px;
 justify-content: space-between;
+border: 1px solid black;
+border-radius: 5px;
 input {
   width: 90%;
   line-height: 1.5;
