@@ -18,7 +18,7 @@ const StaffList = ({ staff, searchValue, parameter }) => {
       staff = filterByDept(staff, searchValue);
     }
     return staff.map((employee) => {
-      return <StaffCard employee={employee} />;
+      return <StaffCard key={employee.id} employee={employee} />;
     })
   }
   return (
