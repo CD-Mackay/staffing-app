@@ -4,16 +4,26 @@ import StyledSearchBar from "./StyledSearchBar";
 
 // Component Imports
 
-const SearchBar = ({parameter, setParameter}) => {
+const SearchBar = ({parameter, setParameter, searchValue, setSearchValue}) => {
 
 
-  const onChange = (event) => {
-    setParameter(event.target.value);
+  const onChangeInput = (event) => {
+    setSearchValue(event.target.value);
   };
+
+  const onChangeParameter = (event) => {
+    setParameter(event.target.value);
+  } 
   
   return (
     <StyledSearchBar>
-      <input type="text" value={parameter} onChange={onChange} placeholder="Search for something!" />
+      <input type="text" value={searchValue} onChange={onChangeInput} placeholder="Search for something!" />
+      <label htmlFor="parameters">Search By...</label>
+      <select name="parameters" value={parameter} onChange={onChangeParameter} id="parameters">
+        <option value="name">Name</option>
+        <option value="department">department</option>
+        <option value="skills">Skills</option>
+      </select>
     </StyledSearchBar>
   );
 };

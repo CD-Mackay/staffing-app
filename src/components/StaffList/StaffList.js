@@ -5,12 +5,12 @@ import StyledStaffList from "./StyledStaffList";
 // Component Imports
 import StaffCard from "../StaffCard/StaffCard";
 
-const StaffList = ({ staff, parameter }) => {
+const StaffList = ({ staff, searchValue }) => {
 
   const renderStaffList = () => {
-    if (parameter) {
+    if (searchValue) {
       staff = staff.filter((employee) => {
-       return employee.name.toLowerCase().includes(parameter.toLowerCase())
+       return employee.name.toLowerCase().includes(searchValue.toLowerCase())
       })
     }
     return staff.map((employee) => {
