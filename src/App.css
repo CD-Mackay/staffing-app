@@ -1,5 +1,5 @@
 .App {
-  width: 80vw;
+  width: 95vw;
   margin: 0 auto;
   background-color: white;
   overflow-y: scroll;
@@ -11,4 +11,16 @@
 
 ul {
   padding-left: 0px;
+}
+
+@media screen and (min-width: 768px) {
+  .App {
+    max-width: 90vw;
+  }
+}
+
+@media (min-width: 992px) {
+  .App {
+    max-width: 900px;
+  }
 }
