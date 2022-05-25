@@ -24,6 +24,13 @@ const StyledStaffCard = styled.div`
     list-style-type: none;
   }
 
+  @media (min-width: 768px) {
+    .image-wrapper {
+      img {
+        max-width: 155px;
+      }
+    }
+  }
 `;
 
 export default StyledStaffCard;
