@@ -6,9 +6,12 @@ const StyledStaffCard = styled.div`
   width: 100%;
   border-bottom: 2px solid gray;
   .image-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     padding: 10px;
     img {
-      width: 200px;
+      max-width: 20vw;
       height: auto;
       border-radius: 500px;
     }
@@ -19,6 +22,14 @@ const StyledStaffCard = styled.div`
   }
   ul {
     list-style-type: none;
+  }
+
+  @media (min-width: 768px) {
+    .image-wrapper {
+      img {
+        max-width: 155px;
+      }
+    }
   }
 `;
 

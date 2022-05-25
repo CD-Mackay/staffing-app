@@ -6,7 +6,7 @@ import StyledStaffList from "./StyledStaffList";
 import StaffCard from "../StaffCard/StaffCard";
 
 // Asset Imports
-import { filterByDept, filterByName } from "../../utilities/helpers";
+import { filterByDept, filterByName, filterBySkills } from "../../utilities/helpers";
 
 const StaffList = ({ staff, searchValue, parameter }) => {
 
@@ -16,6 +16,9 @@ const StaffList = ({ staff, searchValue, parameter }) => {
     }
     if (parameter === "department" && searchValue) {
       staff = filterByDept(staff, searchValue);
+    }
+    if (parameter === "skills" && searchValue) {
+      staff = filterBySkills(staff, searchValue);
     }
     return staff.map((employee) => {
       return <StaffCard key={employee.id} employee={employee} />;
