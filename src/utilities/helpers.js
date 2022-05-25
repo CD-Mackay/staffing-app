@@ -13,3 +13,11 @@ export const filterByDept = (array, parameter) => {
     }
   });
 };
+
+export const filterBySkills = (array, parameter) => {
+  return array.filter((employee) => {
+    for (let skill of employee.skills) {
+      return skill.toLowerCase().includes(parameter.toLowerCase());
+    }
+  });
+};
