@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const StyledStaffCard = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 3fr;
   width: 100%;
   border-bottom: 2px solid gray;
   .image-wrapper {
@@ -22,6 +22,14 @@ const StyledStaffCard = styled.div`
   }
   ul {
     list-style-type: none;
+    display: flex;
+    flex-wrap: row-reverse;
+    li {
+      background-color: gray;
+      margin: 2px;
+      padding: 5px;
+      border-radius: 10px;
+    }
   }
 
   @media (min-width: 768px) {
