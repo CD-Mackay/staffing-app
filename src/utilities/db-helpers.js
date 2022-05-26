@@ -1,6 +1,6 @@
 import { MongoClient } from "mongodb";
 
-export default async function updateDataBase(req, res) {
+async function updateDataBase(req, res) {
 
 
   const connectionString = `mongodb+srv://ConnorTwo:ConnorPass@authcluster.jdoeb.mongodb.net/?retryWrites=true&w=majority`;

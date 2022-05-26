@@ -4,6 +4,7 @@ import "./App.css";
 import staff from "../src/utilities/dummy-data";
 import { useState } from "react";
 
+
 // Component imports
 import StaffList from "./components/StaffList/StaffList";
 import SearchBar from "./components/SearchBar/SearchBar";
@@ -11,6 +12,8 @@ import SearchBar from "./components/SearchBar/SearchBar";
 function App() {
   const [searchValue, setSearchValue] = useState("");
   const [parameter, setParameter] = useState("name");
+
+
 
   return (
     <div className="App">
