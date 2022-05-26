@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CustomInput from "../Input/CustomInput";
 
 import StyledStaffCard from "./styledStaffCard";
@@ -14,6 +14,10 @@ const StaffCard = ({ employee }) => {
     setEmployeeSkills(skillsArray);
   };
 
+  // useEffect(() => {
+
+  // }, [employeeSkills]);
+
   return (
     <StyledStaffCard>
         <div className="image-wrapper">
@@ -26,7 +30,7 @@ const StaffCard = ({ employee }) => {
         <div className="employee-info">
           <p>Skills:</p>
         <ul>
-          {skills.map((skill) => {
+          {employeeSkills.map((skill) => {
             return <li key={skill}>{skill}</li>;
           })}
         </ul>
