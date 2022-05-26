@@ -11,7 +11,7 @@ const CustomInput = ({onSubmit}) => {
   const handleSubmitForm = (event) => {
     event.preventDefault();
     onSubmit(skillInputRef.current.value);
-    skillInputRef.current.value = ""
+    skillInputRef.current.value = "";
   }
   return (
     <StyledCustomInput>
