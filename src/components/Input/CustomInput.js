@@ -4,10 +4,12 @@ import StyledCustomInput from "./StyledCustomInput";
 
 // Component Imports
 
-const CustomInput = () => {
+const CustomInput = ({onSubmit}) => {
   return (
     <StyledCustomInput>
-     I am Custom Input. One day I will add skills to the employee
+      <form onSubmit={onSubmit}>
+        <input type="text" placeholder="Add qualification" />
+      </form>
     </StyledCustomInput>
   );
 };

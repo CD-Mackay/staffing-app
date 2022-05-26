@@ -1,10 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import CustomInput from "../Input/CustomInput";
 
 import StyledStaffCard from "./styledStaffCard";
 
 const StaffCard = ({ employee }) => {
-  const { name, department, skills } = employee;
+  const { name, department, skills, id } = employee;
+  const [employeeSkills, setEmployeeSkills] = useState(skills);
+
+  const handleAddSkill = (input) => {
+    console.log("adding new skill")
+    let skillsArray = [...employeeSkills];
+    skillsArray.push(input);
+    setEmployeeSkills(skillsArray);
+  };
+
   return (
     <StyledStaffCard>
         <div className="image-wrapper">
@@ -22,7 +31,7 @@ const StaffCard = ({ employee }) => {
           })}
         </ul>
       </div>
-      <CustomInput />
+      <CustomInput employeeId={id} onSubmit={handleAddSkill}  />
     </StyledStaffCard>
   );
 };
