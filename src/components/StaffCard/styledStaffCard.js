@@ -4,9 +4,9 @@ const StyledStaffCard = styled.div`
   display: grid;
   grid-template-columns: 1fr 3fr;
   grid-template-rows: auto;
-  grid-template-areas: 
-  "image header"
-  "image info";
+  grid-template-areas:
+    "image header"
+    "image info";
   width: 100%;
   border-bottom: 2px solid gray;
   .image-wrapper {
@@ -27,6 +27,7 @@ const StyledStaffCard = styled.div`
     h4 {
       font-size: 36px;
       margin: 0px;
+      padding-top: 5px;
     }
   }
   .employee-info {

@@ -22,7 +22,7 @@ const StaffCard = ({ employee }) => {
         <h4>{name}</h4>
       </div>
       <div className="employee-info">
-      <p>Department: {department}</p>
+      {department && <p>Department: {department}</p>}
         <p>Skills:</p>
         <ul>
           {employeeSkills.map((skill) => {
