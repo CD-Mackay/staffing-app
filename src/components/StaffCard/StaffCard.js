@@ -18,11 +18,11 @@ const StaffCard = ({ employee }) => {
       <div className="image-wrapper">
         <img src="images/ongo-gablogian.jpg" alt="ongo gablogian" />
       </div>
-      <div className="employee-info">
-        <h4>name: {name}</h4>
-        <p>Department: {department}</p>
+      <div className="employee-header">
+        <h4>{name}</h4>
       </div>
       <div className="employee-info">
+      <p>Department: {department}</p>
         <p>Skills:</p>
         <ul>
           {employeeSkills.map((skill) => {

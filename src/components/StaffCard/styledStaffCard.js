@@ -2,7 +2,11 @@ import styled from "styled-components";
 
 const StyledStaffCard = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr 3fr;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: auto;
+  grid-template-areas: 
+  "image header"
+  "image info";
   width: 100%;
   border-bottom: 2px solid gray;
   .image-wrapper {
@@ -10,6 +14,7 @@ const StyledStaffCard = styled.div`
     flex-direction: column;
     justify-content: center;
     padding: 10px;
+    grid-area: image;
     img {
       max-width: 20vw;
       height: auto;
@@ -17,8 +22,16 @@ const StyledStaffCard = styled.div`
     }
   }
 
+  .employee-header {
+    grid-area: header;
+    h4 {
+      font-size: 36px;
+      margin: 0px;
+    }
+  }
   .employee-info {
     padding: 10px;
+    grid-area: info;
   }
   ul {
     list-style-type: none;
