@@ -1,14 +1,21 @@
-import React from "react";
+import React, { useRef } from "react";
 
 import StyledCustomInput from "./StyledCustomInput";
 
 // Component Imports
 
 const CustomInput = ({onSubmit}) => {
+
+  const skillInputRef = useRef();
+
+  const handleSubmitForm = (event) => {
+    event.preventDefault();
+    onSubmit(skillInputRef.current.value)
+  }
   return (
     <StyledCustomInput>
-      <form onSubmit={onSubmit}>
-        <input type="text" placeholder="Add qualification" />
+      <form onSubmit={(e) => handleSubmitForm(e)}>
+        <input type="text" ref={skillInputRef} placeholder="Add qualification" />
       </form>
     </StyledCustomInput>
   );
