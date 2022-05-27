@@ -4,7 +4,7 @@ import CustomInput from "../Input/CustomInput";
 import StyledStaffCard from "./styledStaffCard";
 
 const StaffCard = ({ employee }) => {
-  const { name, department, skills, id } = employee;
+  const { name, department, skills, id, flag } = employee;
   const [employeeSkills, setEmployeeSkills] = useState(skills);
 
   const handleAddSkill = (input) => {
@@ -14,7 +14,7 @@ const StaffCard = ({ employee }) => {
   };
 
   return (
-    <StyledStaffCard>
+    <StyledStaffCard flag={flag}>
       <div className="image-wrapper">
         <img src="images/ongo-gablogian.jpg" alt="ongo gablogian" />
       </div>
