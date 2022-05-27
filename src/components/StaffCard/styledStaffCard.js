@@ -25,10 +25,12 @@ background-color: ${props => props.flag === "green" ? "#BDF0C9" : props.flag ===
 
   .employee-header {
     grid-area: header;
+    display: flex;
     h4 {
       font-size: 36px;
       margin: 0px;
       padding-top: 5px;
+      padding-right: 5px;
     }
   }
   .employee-info {
