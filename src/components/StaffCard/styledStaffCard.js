@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 const StyledStaffCard = styled.div`
+background-color: ${props => props.flag === "green" ? "#BDF0C9" : props.flag === "red" ? "#F0C9CD" : ""};
   display: grid;
   grid-template-columns: 1fr 3fr;
   grid-template-rows: auto;
@@ -31,6 +32,8 @@ const StyledStaffCard = styled.div`
     }
   }
   .employee-info {
+    display: flex;
+    justify-content: space-between;
     padding: 10px;
     grid-area: info;
   }

@@ -6,6 +6,7 @@ const staff = [
     department: null,
     superior: null,
     skills: ["finances", "management"],
+    flag: null,
   },
   {
     id: 2,
@@ -14,6 +15,7 @@ const staff = [
     department: "Marketing",
     superior: "Frank",
     skills: ["management", "marketing"],
+    flag: "red",
   },
   {
     id: 3,
@@ -22,6 +24,7 @@ const staff = [
     department: "Marketing",
     superior: "Roger",
     skills: ["Graphic Design"],
+    flag: "green"
   },
   {
     id: 4,
@@ -30,6 +33,7 @@ const staff = [
     department: "Sales",
     superior: "Frank",
     skills: ["Sales", "Management"],
+    flag: null,
   },
   {
     id: 5,
@@ -38,6 +42,7 @@ const staff = [
     department: "Sales",
     superior: "Mac",
     skills: ["Sales"],
+    flag: null,
   },
   {
     id: 6,
