@@ -32,6 +32,8 @@ background-color: ${props => props.flag === "green" ? "#BDF0C9" : props.flag ===
     }
   }
   .employee-info {
+    display: flex;
+    justify-content: space-between;
     padding: 10px;
     grid-area: info;
   }

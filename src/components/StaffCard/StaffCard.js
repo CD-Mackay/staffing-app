@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import FlagButton from "../FlagButton/FlagButton";
 import CustomInput from "../Input/CustomInput";
 
 import StyledStaffCard from "./styledStaffCard";
@@ -22,6 +23,7 @@ const StaffCard = ({ employee }) => {
         <h4>{name}</h4>
       </div>
       <div className="employee-info">
+        <div>
       {department && <p>Department: {department}</p>}
         <p>Skills:</p>
         <ul>
@@ -30,6 +32,10 @@ const StaffCard = ({ employee }) => {
           })}
         </ul>
         <CustomInput employeeId={id} onSubmit={handleAddSkill} />
+        </div>
+        <div>
+          <FlagButton />
+        </div>
       </div>
     </StyledStaffCard>
   );
