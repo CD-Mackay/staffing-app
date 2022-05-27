@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+import { HiPlus, HiMinus} from 'react-icons/hi'; 
 
 import StyledFlagButton from "./StyledFlagButton";
 
@@ -17,7 +18,7 @@ const FlagButton = ({flag, setFlag}) => {
     return (
       <StyledFlagButton>
         <button onClick={handleRemoveFlag}>
-          remove
+          <HiMinus fontSize="32px" />
         </button>
       </StyledFlagButton>
     );
@@ -27,7 +28,7 @@ const FlagButton = ({flag, setFlag}) => {
     return (
       <StyledFlagButton>
         <button onClick={handleAddFlag}>
-          add
+          <HiPlus fontSize="32px" />
         </button>
       </StyledFlagButton>
     )
