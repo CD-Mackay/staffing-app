@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 const StyledSearchBar = styled.div`
-  border: 1px solid black;
+  border: 1px solid gray;
+  background-color: white;
   border-radius: 10px;
   display: grid;
   grid-template-columns: 4fr 1fr;
