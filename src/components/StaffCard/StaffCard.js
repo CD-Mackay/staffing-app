@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import FlagButton from "../FlagButton/FlagButton";
 import CustomInput from "../Input/CustomInput";
 
@@ -7,6 +7,7 @@ import StyledStaffCard from "./styledStaffCard";
 const StaffCard = ({ employee }) => {
   const { name, department, skills, id, flag } = employee;
   const [employeeSkills, setEmployeeSkills] = useState(skills);
+  const [flagged, setFlagged] = useState(flag)
 
   const handleAddSkill = (input) => {
     let skillsArray = [...employeeSkills];
@@ -15,7 +16,7 @@ const StaffCard = ({ employee }) => {
   };
 
   return (
-    <StyledStaffCard flag={flag}>
+    <StyledStaffCard flag={flagged}>
       <div className="image-wrapper">
         <img src="images/ongo-gablogian.jpg" alt="ongo gablogian" />
       </div>
@@ -34,7 +35,7 @@ const StaffCard = ({ employee }) => {
         <CustomInput employeeId={id} onSubmit={handleAddSkill} />
         </div>
         <div>
-          <FlagButton />
+          <FlagButton flag={flagged} setFlag={setFlagged} />
         </div>
       </div>
     </StyledStaffCard>

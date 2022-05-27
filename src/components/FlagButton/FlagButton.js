@@ -1,17 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 
 import StyledFlagButton from "./StyledFlagButton";
 
-const FlagButton = () => {
+const FlagButton = ({flag, setFlag}) => {
 
 
-  return (
-    <StyledFlagButton>
-      <button>
-      I am FlagButton
-      </button>
-    </StyledFlagButton>
-  );
+  const handleRemoveFlag = () => {
+    setFlag(false);
+  };
+
+  const handleAddFlag = () => {
+    setFlag("red");
+  }
+
+  if (flag) {
+    return (
+      <StyledFlagButton>
+        <button onClick={handleRemoveFlag}>
+          remove
+        </button>
+      </StyledFlagButton>
+    );
+  };
+
+  if (!flag) {
+    return (
+      <StyledFlagButton>
+        <button onClick={handleAddFlag}>
+          add
+        </button>
+      </StyledFlagButton>
+    )
+  }
+
 };
 
 export default FlagButton;
