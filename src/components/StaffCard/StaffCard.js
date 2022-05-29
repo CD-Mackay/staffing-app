@@ -27,7 +27,7 @@ const StaffCard = ({ employee }) => {
       <div className="employee-info">
         <div>
       {department && <p>Department: {department}</p>}
-        <p>Reports to: {superior ? superior : "no one"} </p>
+        {superior && <p>Reports to: {superior} </p>}
         <ul>
           {employeeSkills.map((skill) => {
             return <li key={skill}>{skill}</li>;
