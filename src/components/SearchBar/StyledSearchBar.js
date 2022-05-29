@@ -3,13 +3,13 @@ import styled from "styled-components";
 const StyledSearchBar = styled.div`
   border: 1px solid gray;
   background-color: white;
-  border-radius: 10px;
+  border-radius: 25px;
   display: grid;
   grid-template-columns: 4fr 1fr;
   justify-content: space-between;
   padding: 5px;
   position: fixed;
-  top: 0;
+  top: 10vh;
   input {
     width: 90%;
     line-height: 1.5;
