@@ -4,6 +4,7 @@ import StyledStaffList from "./StyledStaffList";
 
 // Component Imports
 import StaffCard from "../StaffCard/StaffCard";
+import SearchBar from "../SearchBar/SearchBar";
 
 // Asset Imports
 import { filterByDept, filterByName, filterBySkills } from "../../utilities/helpers";
