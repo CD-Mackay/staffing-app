@@ -8,6 +8,7 @@ import { useState } from "react";
 // Component imports
 import StaffList from "./components/StaffList/StaffList";
 import SearchBar from "./components/SearchBar/SearchBar";
+import Header from "./components/Header/Header";
 
 function App() {
   const [searchValue, setSearchValue] = useState("");
@@ -17,6 +18,7 @@ function App() {
 
   return (
     <div className="App">
+      {/* <Header /> */}
       <SearchBar
         searchValue={searchValue}
         setSearchValue={setSearchValue}

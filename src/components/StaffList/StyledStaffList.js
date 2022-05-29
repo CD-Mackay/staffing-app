@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-const StyledStaffCard = styled.section`
-
+const StyledStaffList = styled.section`
+padding-top: 50px;
 `;
 
-export default StyledStaffCard;
+export default StyledStaffList;
