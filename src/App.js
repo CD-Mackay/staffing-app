@@ -7,7 +7,6 @@ import { useState } from "react";
 // Component imports
 import StaffList from "./components/StaffList/StaffList";
 import SearchBar from "./components/SearchBar/SearchBar";
-import Header from "./components/Header/Header";
 
 function App() {
   const [searchValue, setSearchValue] = useState("");
@@ -23,7 +22,8 @@ function App() {
       />
       <StaffList
         staff={staff}
-        parameter={parameter}å
+        parameter={parameter}
+        å
         searchValue={searchValue}
       />
     </div>
