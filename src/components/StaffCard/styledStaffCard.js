@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 const StyledStaffCard = styled.div`
-background-color: ${props => props.flag === "green" ? "#BDF0C9" : props.flag === "red" ? "#F0C9CD" : ""};
+  background-color: ${(props) =>
+    props.flag === "green" ? "#BDF0C9" : props.flag === "red" ? "#F0C9CD" : ""};
   display: grid;
   grid-template-columns: 1fr 3fr;
   grid-template-rows: auto;
@@ -41,16 +42,19 @@ background-color: ${props => props.flag === "green" ? "#BDF0C9" : props.flag ===
     justify-content: space-between;
     padding: 10px;
     grid-area: info;
-  }
-  ul {
-    list-style-type: none;
-    display: flex;
-    flex-wrap: wrap;
-    li {
-      background-color: gray;
-      margin: 2px;
-      padding: 5px;
-      border-radius: 10px;
+    .flag-info {
+      max-width: 150px;
+    }
+    ul {
+      list-style-type: none;
+      display: flex;
+      flex-wrap: wrap;
+      li {
+        background-color: gray;
+        margin: 2px;
+        padding: 5px;
+        border-radius: 10px;
+      }
     }
   }
 
