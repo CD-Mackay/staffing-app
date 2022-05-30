@@ -1,17 +1,17 @@
-export async function getAllEvents() {
+export async function getAllStaff() {
   const response = await fetch(' https://staffing-app-8610f-default-rtdb.firebaseio.com/staff.json');
   const data = await response.json();
 
-  const events = [];
+  const staff = [];
 
   for (const key in data) {
-    events.push({
+    staff.push({
       id: key,
       ...data[key]
     });
   }
 
-  return events;
+  return staff;
 };
 
 

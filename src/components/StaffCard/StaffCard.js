@@ -7,7 +7,7 @@ import StyledStaffCard from "./styledStaffCard";
 const StaffCard = ({ employee }) => {
   const { name, department, skills, id, flag, superior, title } = employee;
   const [employeeSkills, setEmployeeSkills] = useState(skills);
-  const [flagged, setFlagged] = useState(flag);
+  const [flagged, setFlagged] = useState(flag === "null" ? null : flag);
 
   const handleAddSkill = (input) => {
     let skillsArray = [...employeeSkills];
