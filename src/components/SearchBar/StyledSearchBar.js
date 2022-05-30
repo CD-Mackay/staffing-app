@@ -9,9 +9,10 @@ const StyledSearchBar = styled.div`
   justify-content: space-between;
   padding: 5px;
   position: fixed;
-  top: 10vh;
+  top: 5vh;
+  max-width: inherit;
   input {
-    width: 90%;
+    width: 80%;
     line-height: 1.5;
     font-size: 22px;
     border-radius: 5px;
@@ -22,6 +23,13 @@ const StyledSearchBar = styled.div`
     display: flex;
     select {
       border-radius: 10px;
+    }
+  }
+
+  @media (min-width: 992px) {
+    top: 10vh;
+    input {
+      width: 90%;
     }
   }
 `;
