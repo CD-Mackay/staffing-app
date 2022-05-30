@@ -14,7 +14,7 @@ const StyledSearchBar = styled.div`
   input {
     width: 80%;
     line-height: 1.5;
-    font-size: 22px;
+    font-size: 20px;
     border-radius: 5px;
     border: none;
   }
@@ -23,6 +23,7 @@ const StyledSearchBar = styled.div`
     display: flex;
     select {
       border-radius: 10px;
+      margin-left: 5px;
     }
   }
 
@@ -30,6 +31,7 @@ const StyledSearchBar = styled.div`
     top: 10vh;
     input {
       width: 90%;
+      font-size: 22px;
     }
   }
 `;
