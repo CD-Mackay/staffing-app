@@ -45,7 +45,7 @@ background-color: ${props => props.flag === "green" ? "#BDF0C9" : props.flag ===
   ul {
     list-style-type: none;
     display: flex;
-    flex-wrap: row-reverse;
+    flex-wrap: wrap;
     li {
       background-color: gray;
       margin: 2px;
