@@ -22,7 +22,7 @@ const StaffCard = ({ employee }) => {
       </div>
       <div className="employee-header">
         <h4>{name}</h4>
-        <p>{title}</p>
+        <p> - {title}</p>
       </div>
       <div className="employee-info">
         <div>
