@@ -7,7 +7,7 @@ import StyledStaffCard from "./styledStaffCard";
 const StaffCard = ({ employee }) => {
   const { name, department, skills, id, flag, superior, title } = employee;
   const [employeeSkills, setEmployeeSkills] = useState(skills);
-  const [flagged, setFlagged] = useState(flag)
+  const [flagged, setFlagged] = useState(flag);
 
   const handleAddSkill = (input) => {
     let skillsArray = [...employeeSkills];
@@ -26,15 +26,20 @@ const StaffCard = ({ employee }) => {
       </div>
       <div className="employee-info">
         <div>
-      {department && <p>Department: {department}</p>}
-        {superior && <p>Reports to: {superior} </p>}
-        <ul>
-          {employeeSkills.map((skill) => {
-            return <li key={skill}>{skill}</li>;
-          })}
-        </ul>
-        <CustomInput employeeId={id} onSubmit={handleAddSkill} />
+          {department && <p>Department: {department}</p>}
+          {superior && <p>Reports to: {superior} </p>}
+          <ul>
+            {employeeSkills.map((skill) => {
+              return <li key={skill}>{skill}</li>;
+            })}
+          </ul>
+          <CustomInput employeeId={id} onSubmit={handleAddSkill} />
         </div>
+        {flag && (
+          <div className="flag-info">
+            <p>You have flagged this employee.</p>
+          </div>
+        )}
         <div>
           <FlagButton flag={flagged} setFlag={setFlagged} />
         </div>
