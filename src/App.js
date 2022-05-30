@@ -1,8 +1,7 @@
 import "./App.css";
 
 // Asset Imports
-import staff from "../src/utilities/dummy-data";
-import { useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
 import { getAllStaff } from "./utilities/db-helpers";
 
 // Component imports
@@ -20,7 +19,11 @@ function App() {
     setStaff(result);
   };
 
-  makeStaffList();
+  // makeStaffList();
+
+  useEffect(() => {
+    makeStaffList();
+  }, []);
 
 
 
