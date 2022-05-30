@@ -27,10 +27,10 @@ const FlagButton = ({ flag, setFlag }) => {
     return (
       <StyledFlagButton>
         <button onClick={() => handleAddFlag("green")}>
-          <FaFlag color="green" fontSize="32px" />
+          <FaFlag color="green" fontSize="28px" />
         </button>
         <button onClick={() => handleAddFlag("red")}>
-          <FaFlag color="red" fontSize="32px" />
+          <FaFlag color="red" fontSize="28px" />
         </button>
       </StyledFlagButton>
     );
