@@ -1,7 +1,7 @@
 import "./App.css";
 
 // Asset Imports
-import {  useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { getAllStaff } from "./utilities/db-helpers";
 
 // Component imports
@@ -13,22 +13,14 @@ function App() {
   const [parameter, setParameter] = useState("name");
   const [staff, setStaff] = useState([]);
 
-
   const makeStaffList = async () => {
     let result = await getAllStaff();
     setStaff(result);
   };
 
-  // makeStaffList();
-
   useEffect(() => {
     makeStaffList();
   }, []);
-
-
-
-
-  
 
   return (
     <div className="App">
