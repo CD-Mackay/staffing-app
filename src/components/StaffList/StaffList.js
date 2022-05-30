@@ -29,7 +29,7 @@ const StaffList = ({ staff, searchValue, parameter }) => {
   };
   return (
     <StyledStaffList data-testid="staff-list">
-      {renderStaffList()}
+      {staff.length > 0 && renderStaffList()}
     </StyledStaffList>
   );
 };
