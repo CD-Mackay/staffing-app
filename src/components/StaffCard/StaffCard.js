@@ -15,6 +15,8 @@ const StaffCard = ({ employee }) => {
     setEmployeeSkills(skillsArray);
   };
 
+
+
   return (
     <StyledStaffCard flag={flagged}>
       <div className="image-wrapper">
@@ -35,7 +37,7 @@ const StaffCard = ({ employee }) => {
           </ul>
           <CustomInput employeeId={id} onSubmit={handleAddSkill} />
         </div>
-        {flag && (
+        {flagged && (
           <div className="flag-info">
             <p>You have flagged this employee.</p>
           </div>
