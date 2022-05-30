@@ -17,7 +17,7 @@ function App() {
 
   const makeStaffList = async () => {
     let result = await getAllStaff();
-    console.log(result);
+    setStaff(result);
   };
 
   makeStaffList();
