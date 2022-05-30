@@ -32,6 +32,9 @@ background-color: ${props => props.flag === "green" ? "#BDF0C9" : props.flag ===
       padding-top: 5px;
       padding-right: 5px;
     }
+    p {
+      font-style: italic;
+    }
   }
   .employee-info {
     display: flex;
@@ -42,7 +45,7 @@ background-color: ${props => props.flag === "green" ? "#BDF0C9" : props.flag ===
   ul {
     list-style-type: none;
     display: flex;
-    flex-wrap: row-reverse;
+    flex-wrap: wrap;
     li {
       background-color: gray;
       margin: 2px;

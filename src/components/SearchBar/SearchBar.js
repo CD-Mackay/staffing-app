@@ -25,11 +25,11 @@ const SearchBar = ({
           type="text"
           value={searchValue}
           onChange={onChangeInput}
-          placeholder="Search for something!"
+          placeholder="search employees"
         />
       </div>
       <div id="select-input">
-        <label htmlFor="parameters">Search By...</label>
+        <label htmlFor="parameters">search by...</label>
         <select
           name="parameters"
           value={parameter}
