@@ -1,10 +1,11 @@
 import React from "react";
 import { HiMinus } from "react-icons/hi";
 import { FaFlag } from "react-icons/fa";
+import { addFlag } from "../../utilities/db-helpers";
 
 import StyledFlagButton from "./StyledFlagButton";
 
-const FlagButton = ({ flag, setFlag }) => {
+const FlagButton = ({ flag, setFlag, id }) => {
   const handleRemoveFlag = () => {
     setFlag(false);
   };
@@ -26,10 +27,10 @@ const FlagButton = ({ flag, setFlag }) => {
   if (!flag) {
     return (
       <StyledFlagButton>
-        <button onClick={() => handleAddFlag("green")}>
+        <button onClick={() => addFlag("green", id)}>
           <FaFlag color="green" fontSize="28px" />
         </button>
-        <button onClick={() => handleAddFlag("red")}>
+        <button onClick={() => addFlag("red", id)}>
           <FaFlag color="red" fontSize="28px" />
         </button>
       </StyledFlagButton>

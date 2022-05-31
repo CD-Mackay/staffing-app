@@ -43,7 +43,7 @@ const StaffCard = ({ employee }) => {
           </div>
         )}
         <div>
-          <FlagButton flag={flagged} setFlag={setFlagged} />
+          <FlagButton flag={flagged} id={id} setFlag={setFlagged} />
         </div>
       </div>
     </StyledStaffCard>
