@@ -7,6 +7,7 @@ import { getAllStaff } from "./utilities/db-helpers";
 // Component imports
 import StaffList from "./components/StaffList/StaffList";
 import SearchBar from "./components/SearchBar/SearchBar";
+import Header from "./components/Header/Header";
 
 function App() {
   const [searchValue, setSearchValue] = useState("");
@@ -24,17 +25,20 @@ function App() {
 
   return (
     <div className="App">
-      <SearchBar
-        searchValue={searchValue}
-        setSearchValue={setSearchValue}
-        parameter={parameter}
-        setParameter={setParameter}
-      />
-      <StaffList
-        staff={staff}
-        parameter={parameter}
-        searchValue={searchValue}
-      />
+      <Header />
+      <div className="layout">
+        <SearchBar
+          searchValue={searchValue}
+          setSearchValue={setSearchValue}
+          parameter={parameter}
+          setParameter={setParameter}
+        />
+        <StaffList
+          staff={staff}
+          parameter={parameter}
+          searchValue={searchValue}
+        />
+      </div>
     </div>
   );
 }
