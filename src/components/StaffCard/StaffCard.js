@@ -7,6 +7,7 @@ import StyledStaffCard from "./styledStaffCard";
 const StaffCard = ({ employee }) => {
   const { name, department, skills, id, flag, superior, title } = employee;
   const [employeeSkills, setEmployeeSkills] = useState(skills);
+  console.log(skills);
   const [flagged, setFlagged] = useState(flag === "null" ? null : flag);
 
   const handleAddSkill = (input) => {
@@ -31,7 +32,7 @@ const StaffCard = ({ employee }) => {
           {department && <p>Department: {department}</p>}
           {superior && <p>Reports to: {superior} </p>}
           <ul>
-            {employeeSkills.map((skill) => {
+            {employeeSkills && employeeSkills.map((skill) => {
               return <li key={skill}>{skill}</li>;
             })}
           </ul>

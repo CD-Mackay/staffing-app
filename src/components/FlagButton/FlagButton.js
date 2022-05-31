@@ -10,9 +10,9 @@ const FlagButton = ({ flag, setFlag, id }) => {
     setFlag(false);
   };
 
-  const handleAddFlag = (input) => {
-    setFlag(input);
-  };
+  // const handleAddFlag = (input) => {
+  //   setFlag(input);
+  // };
 
   if (flag) {
     return (
