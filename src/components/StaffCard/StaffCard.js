@@ -31,7 +31,7 @@ const StaffCard = ({ employee }) => {
           {department && <p>Department: {department}</p>}
           {superior && <p>Reports to: {superior} </p>}
           <ul>
-            {employeeSkills.map((skill) => {
+            {employeeSkills && employeeSkills.map((skill) => {
               return <li key={skill}>{skill}</li>;
             })}
           </ul>
@@ -43,7 +43,7 @@ const StaffCard = ({ employee }) => {
           </div>
         )}
         <div>
-          <FlagButton flag={flagged} setFlag={setFlagged} />
+          <FlagButton flag={flagged} userId={id} setFlag={setFlagged} />
         </div>
       </div>
     </StyledStaffCard>
