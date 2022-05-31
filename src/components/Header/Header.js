@@ -6,7 +6,8 @@ const Header = () => {
 
     return (
       <StyledHeader>
-        I am Header
+        <div className="logo">I am LOGO!</div>
+        <div className="nav">I am Nav!</div>
       </StyledHeader>
     );
 
