@@ -14,11 +14,11 @@ export async function getAllStaff() {
   return staff;
 };
 
-export async function addFlag(id, flag) {
-  const response = await fetch(`https://staffing-app-8610f-default-rtdb.firebaseio.com/staff/${id}.json`, {
-    method: 'POST',
+export async function addFlag(flag, userId) {
+  const response = await fetch(`https://staffing-app-8610f-default-rtdb.firebaseio.com/staff/1/flag.json`, {
+    method: 'PUT',
     headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({ flag: flag })
+    body: JSON.stringify({ flag })
   })
   const data = await response.json();
   console.log(data);
