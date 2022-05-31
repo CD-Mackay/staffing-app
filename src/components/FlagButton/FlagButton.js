@@ -6,19 +6,21 @@ import { addFlag } from "../../utilities/db-helpers";
 import StyledFlagButton from "./StyledFlagButton";
 
 const FlagButton = ({ flag, setFlag, userId }) => {
-  const handleRemoveFlag = () => {
+  const handleRemoveFlag = (id) => {
+    addFlag("null", id)
     setFlag(false);
   };
 
 
   const handleAddFlag = (input, id) => {
-    console.log(input, id);
+    addFlag(input, id);
+    setFlag(input);
   };
 
   if (flag) {
     return (
       <StyledFlagButton>
-        <button onClick={handleRemoveFlag}>
+        <button onClick={() => handleRemoveFlag(userId)}>
           <HiMinus fontSize="32px" />
         </button>
       </StyledFlagButton>
@@ -28,10 +30,10 @@ const FlagButton = ({ flag, setFlag, userId }) => {
   if (!flag) {
     return (
       <StyledFlagButton>
-        <button onClick={() => addFlag("green", userId)}>
+        <button onClick={() => handleAddFlag("green", userId)}>
           <FaFlag color="green" fontSize="28px" />
         </button>
-        <button onClick={() => addFlag("red", userId)}>
+        <button onClick={() => handleAddFlag("red", userId)}>
           <FaFlag color="red" fontSize="28px" />
         </button>
       </StyledFlagButton>

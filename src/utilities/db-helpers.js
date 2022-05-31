@@ -15,7 +15,7 @@ export async function getAllStaff() {
 };
 
 export async function addFlag(flag, userId) {
-  const response = await fetch(`https://staffing-app-8610f-default-rtdb.firebaseio.com/staff/1.json`, {
+  const response = await fetch(`https://staffing-app-8610f-default-rtdb.firebaseio.com/staff/${userId}.json`, {
     method: 'PATCH',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify({ "flag" : flag })
