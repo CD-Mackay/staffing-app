@@ -8,6 +8,15 @@ display: flex;
 justify-content: space-between;
 border: 1px solid gray;
 background-color: white;
+.logo {
+  display: flex;
+   h4 {
+     font-size: 24px;
+     font-style: italic;
+     margin: 0px;
+     margin-top: 5px;
+   }
+}
 .nav {
   display: flex;
   padding: 5px;
