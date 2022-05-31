@@ -25,19 +25,19 @@ function App() {
 
   return (
     <div className="App">
-            <Header />
+      <Header />
       <div className="layout">
-      <SearchBar
-        searchValue={searchValue}
-        setSearchValue={setSearchValue}
-        parameter={parameter}
-        setParameter={setParameter}
-      />
-      <StaffList
-        staff={staff}
-        parameter={parameter}
-        searchValue={searchValue}
-      />
+        <SearchBar
+          searchValue={searchValue}
+          setSearchValue={setSearchValue}
+          parameter={parameter}
+          setParameter={setParameter}
+        />
+        <StaffList
+          staff={staff}
+          parameter={parameter}
+          searchValue={searchValue}
+        />
       </div>
     </div>
   );
