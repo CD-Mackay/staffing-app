@@ -1,4 +1,4 @@
-.App {
+.layout {
   width: 95vw;
   margin: 0 auto;
   background-color: white;
@@ -22,13 +22,13 @@ ul {
 }
 
 @media screen and (min-width: 768px) {
-  .App {
+  .layout {
     max-width: 90vw;
   }
 }
 
 @media (min-width: 992px) {
-  .App {
+  .layout {
     max-width: 900px;
     height: 80vh;
   }
