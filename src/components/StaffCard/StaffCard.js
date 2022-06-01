@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import FlagButton from "../FlagButton/FlagButton";
 import CustomInput from "../Input/CustomInput";
+import SkillBadge from "../SkillBadge/SkillBadge";
 import { addSKill } from "../../utilities/db-helpers";
+
 
 import StyledStaffCard from "./styledStaffCard";
 
@@ -34,7 +36,7 @@ const StaffCard = ({ employee }) => {
           {superior && <p>Reports to: {superior} </p>}
           <ul>
             {employeeSkills && employeeSkills.map((skill) => {
-              return <li key={skill}>{skill}</li>;
+              return <SkillBadge skill={skill} />;
             })}
           </ul>
           <CustomInput employeeId={id} onSubmit={handleAddSkill} />
