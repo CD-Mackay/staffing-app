@@ -3,6 +3,7 @@ import "./App.css";
 // Asset Imports
 import { useEffect, useState } from "react";
 import { getAllStaff } from "./utilities/db-helpers";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 // Component imports
 import StaffList from "./components/StaffList/StaffList";
@@ -24,22 +25,31 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <Header />
-      <div className="layout">
-        <SearchBar
-          searchValue={searchValue}
-          setSearchValue={setSearchValue}
-          parameter={parameter}
-          setParameter={setParameter}
-        />
-        <StaffList
-          staff={staff}
-          parameter={parameter}
-          searchValue={searchValue}
-        />
+    <Router>
+      <div className="App">
+        <Header />
+        <Switch>
+          <div className="layout">
+            <Route path="/">
+            <SearchBar
+              searchValue={searchValue}
+              setSearchValue={setSearchValue}
+              parameter={parameter}
+              setParameter={setParameter}
+            />
+            <StaffList
+              staff={staff}
+              parameter={parameter}
+              searchValue={searchValue}
+            />
+            </Route>
+            <Route path="/new">
+              <div>I am /new</div>
+            </Route>
+          </div>
+        </Switch>
       </div>
-    </div>
+    </Router>
   );
 }
 
