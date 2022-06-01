@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import FlagButton from "../FlagButton/FlagButton";
 import CustomInput from "../Input/CustomInput";
+import { addSKill } from "../../utilities/db-helpers";
 
 import StyledStaffCard from "./styledStaffCard";
 
@@ -13,6 +14,7 @@ const StaffCard = ({ employee }) => {
     let skillsArray = [...employeeSkills];
     skillsArray.push(input);
     setEmployeeSkills(skillsArray);
+    addSKill(id, skillsArray);
   };
 
 
