@@ -3,11 +3,12 @@ import "./App.css";
 // Asset Imports
 import { useEffect, useState } from "react";
 import { getAllStaff } from "./utilities/db-helpers";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // Component imports
-import StaffList from "./components/StaffList/StaffList";
-import SearchBar from "./components/SearchBar/SearchBar";
 import Header from "./components/Header/Header";
+import Home from "./pages/Home";
+import NewEmployee from "./pages/NewEmployee";
 
 function App() {
   const [searchValue, setSearchValue] = useState("");
@@ -24,22 +25,28 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <Header />
-      <div className="layout">
-        <SearchBar
-          searchValue={searchValue}
-          setSearchValue={setSearchValue}
-          parameter={parameter}
-          setParameter={setParameter}
-        />
-        <StaffList
-          staff={staff}
-          parameter={parameter}
-          searchValue={searchValue}
-        />
+    <BrowserRouter>
+      <div className="App">
+        <Header />
+        <div className="layout">
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Home
+                  searchValue={searchValue}
+                  setSearchValue={setSearchValue}
+                  parameter={parameter}
+                  setParameter={setParameter}
+                  staff={staff}
+                />
+              }
+            />
+            <Route path="/new" element={<NewEmployee />} />
+          </Routes>
+        </div>
       </div>
-    </div>
+    </BrowserRouter>
   );
 }
 
