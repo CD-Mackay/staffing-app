@@ -5,8 +5,10 @@ import StyledSkillBadge from "./StyledSkillBadge";
 const SkillBadge = ({ skill }) => {
   return (
     <StyledSkillBadge>
-      <div>{skill}</div>
+      <span>{skill}</span>
+      <div className="badge-button">
       <button>x</button>
+      </div>
     </StyledSkillBadge>
   );
 };
