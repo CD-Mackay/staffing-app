@@ -8,6 +8,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 // Component imports
 import Header from "./components/Header/Header";
 import Home from "./pages/Home";
+import NewEmployee from "./pages/NewEmployee";
 
 function App() {
   const [searchValue, setSearchValue] = useState("");
@@ -29,6 +30,7 @@ function App() {
         <Header />
         <div className="layout">
           <Routes>
+            <Route path="/new" element={<NewEmployee />} />
             <Route
               path="/"
               element={
@@ -41,7 +43,6 @@ function App() {
                 />
               }
             />
-            <Route path="/new" element={<p>I am new</p>} />
           </Routes>
         </div>
       </div>
