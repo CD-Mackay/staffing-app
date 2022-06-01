@@ -6,8 +6,6 @@ import { getAllStaff } from "./utilities/db-helpers";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // Component imports
-import StaffList from "./components/StaffList/StaffList";
-import SearchBar from "./components/SearchBar/SearchBar";
 import Header from "./components/Header/Header";
 import Home from "./pages/Home";
 
