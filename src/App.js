@@ -30,7 +30,6 @@ function App() {
         <Header />
         <div className="layout">
           <Routes>
-            <Route path="/new" element={<NewEmployee />} />
             <Route
               path="/"
               element={
@@ -43,6 +42,7 @@ function App() {
                 />
               }
             />
+            <Route path="/new" element={<NewEmployee />} />
           </Routes>
         </div>
       </div>
