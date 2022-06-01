@@ -49,12 +49,6 @@ const StyledStaffCard = styled.div`
       list-style-type: none;
       display: flex;
       flex-wrap: wrap;
-      li {
-        background-color: gray;
-        margin: 2px;
-        padding: 5px;
-        border-radius: 10px;
-      }
     }
   }
 

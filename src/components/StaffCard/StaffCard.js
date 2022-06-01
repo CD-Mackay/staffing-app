@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import FlagButton from "../FlagButton/FlagButton";
 import CustomInput from "../Input/CustomInput";
+import SkillBadge from "../SkillBadge/SkillBadge";
+import { updateSKill } from "../../utilities/db-helpers";
+
 
 import StyledStaffCard from "./styledStaffCard";
 
@@ -13,8 +16,15 @@ const StaffCard = ({ employee }) => {
     let skillsArray = [...employeeSkills];
     skillsArray.push(input);
     setEmployeeSkills(skillsArray);
+    updateSKill(id, skillsArray);
   };
 
+  const handleRemoveSkill = (input) => {
+    let skillsArray = [...employeeSkills];
+    let updatedSkills = skillsArray.filter(skill => skill !== input);
+    setEmployeeSkills(updatedSkills);
+    updateSKill(id, updatedSkills);
+  };
 
 
   return (
@@ -32,7 +42,7 @@ const StaffCard = ({ employee }) => {
           {superior && <p>Reports to: {superior} </p>}
           <ul>
             {employeeSkills && employeeSkills.map((skill) => {
-              return <li key={skill}>{skill}</li>;
+              return <SkillBadge onDelete={handleRemoveSkill} skill={skill} />;
             })}
           </ul>
           <CustomInput employeeId={id} onSubmit={handleAddSkill} />
