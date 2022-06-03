@@ -5,12 +5,13 @@ import StyledAddEmployee from "./StyledAddEmployee";
 export default function AddEmployee() {
   return (
     <StyledAddEmployee>
+      <h4>Add New Employee</h4>
       <form>
-        <div className="name-input">
+        <div className="employee-input">
           <input type="text" placeholder="First name" />
           <input type="text" placeholder="Last Name" />
         </div>
-        <div className="role-input">
+        <div className="employee-input">
           <input type="text" placeholder="employee title" />
           <input type="text" placeholder="department" />
           <input type="text" placeholder="reports to" />
