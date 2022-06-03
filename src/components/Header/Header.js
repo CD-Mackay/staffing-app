@@ -1,5 +1,6 @@
 import React from "react";
 import { BsPersonSquare } from "react-icons/bs";
+import { Link } from 'react-router-dom';
 
 import StyledHeader from "./StyledHeader";
 
@@ -11,7 +12,9 @@ const Header = () => {
         <h4>Staffify</h4>
       </div>
       <div className="nav">
+        <Link to="/new">
         <p>Add New Employee</p>
+        </Link>
         <p>My Teams</p>
       </div>
     </StyledHeader>
