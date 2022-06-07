@@ -5,6 +5,8 @@ const StyledSkillBadge = styled.li`
   margin: 2px;
   border-radius: 10px;
   display: flex;
+  justify-content: space-between;
+  max-width: 200px;
   span {
     margin: 5px;
   }

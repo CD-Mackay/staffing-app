@@ -1,6 +1,7 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 
 import { AddEmployee } from "../../utilities/db-helpers";
+import SkillBadge from "../SkillBadge/SkillBadge";
 
 import StyledAddEmployee from "./StyledAddEmployee";
 
@@ -9,6 +10,8 @@ export default function AddEmployeeForm() {
   const titleInputRef = useRef();
   const deptInputRef = useRef();
   const superiorInputRef = useRef();
+  const skillInputRef = useRef();
+  const [skillList, setSkillList] = useState([]);
 
   const handleAddEmployee = (event) => {
     event.preventDefault();
@@ -21,11 +24,19 @@ export default function AddEmployeeForm() {
       name,
       title,
       department,
-      superior
+      superior,
     };
     AddEmployee(newEmployeeObect);
   };
 
+  const handleAddSkill = (event) => {
+    event.preventDefault();
+    let skillCopy = [...skillList];
+    const newSkill = skillInputRef.current.value;
+    skillCopy.push(newSkill);
+    setSkillList(skillCopy);
+    skillInputRef.current.value = "";
+  }
 
   return (
     <StyledAddEmployee>
@@ -41,12 +52,16 @@ export default function AddEmployeeForm() {
           <input type="text" placeholder="reports to" ref={superiorInputRef} />
         </div>
         <input type="submit" />
-        <div className="skills-input">
-          {/* <form>
-            <input type="text" placeholder="skill" />
-          </form> */}
-        </div>
       </form>
+      <div className="skills-input">
+        <form onSubmit={(e) => handleAddSkill(e)}>
+          <input type="text" placeholder="skill" ref={skillInputRef} />
+          <input type="submit" />
+        </form>
+        {skillList && skillList.map((skill) => {
+          return <SkillBadge skill={skill} />
+        })}
+      </div>
     </StyledAddEmployee>
   );
 }
