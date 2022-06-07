@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 
 import { AddEmployee } from "../../utilities/db-helpers";
+import SkillBadge from "../SkillBadge/SkillBadge";
 
 import StyledAddEmployee from "./StyledAddEmployee";
 
@@ -56,6 +57,9 @@ export default function AddEmployeeForm() {
           <input type="text" placeholder="skill" ref={skillInputRef} />
           <input type="submit" />
         </form>
+        {skillList && skillList.map((skill) => {
+          return <SkillBadge skill={skill} />
+        })}
       </div>
     </StyledAddEmployee>
   );
