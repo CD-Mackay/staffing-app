@@ -35,6 +35,7 @@ export default function AddEmployeeForm() {
     const newSkill = skillInputRef.current.value;
     skillCopy.push(newSkill);
     setSkillList(skillCopy);
+    skillInputRef.current.value = "";
   }
 
   return (
