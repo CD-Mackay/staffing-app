@@ -42,7 +42,7 @@ const StaffCard = ({ employee }) => {
           {superior && <p>Reports to: {superior} </p>}
           <ul>
             {employeeSkills && employeeSkills.map((skill) => {
-              return <SkillBadge onDelete={handleRemoveSkill} skill={skill} />;
+              return <SkillBadge onDelete={handleRemoveSkill} key={skill} skill={skill} />;
             })}
           </ul>
           <CustomInput employeeId={id} onSubmit={handleAddSkill} />

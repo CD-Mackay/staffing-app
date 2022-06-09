@@ -1,11 +1,11 @@
 import React from "react";
 import { BsPersonSquare } from "react-icons/bs";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 import StyledHeader from "./StyledHeader";
 
 const Header = () => {
-  return (
+return (
     <StyledHeader>
       <div className="logo">
         <BsPersonSquare fontSize="42px" color="pink" />
@@ -13,9 +13,11 @@ const Header = () => {
       </div>
       <div className="nav">
         <Link to="/new">
-        <p>Add New Employee</p>
+          <p>Add New Employee</p>
         </Link>
-        <p>My Teams</p>
+        <Link to="/teams">
+          <p>My Teams</p>
+        </Link>
       </div>
     </StyledHeader>
   );

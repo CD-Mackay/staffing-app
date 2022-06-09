@@ -9,6 +9,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Home from "./pages/Home";
 import NewEmployee from "./pages/NewEmployee";
+import Teams from "./pages/Teams";
 
 function App() {
   const [searchValue, setSearchValue] = useState("");
@@ -43,6 +44,7 @@ function App() {
               }
             />
             <Route path="/new" element={<NewEmployee />} />
+            <Route path="/teams" element={<Teams staff={staff}  />} />
           </Routes>
         </div>
       </div>
