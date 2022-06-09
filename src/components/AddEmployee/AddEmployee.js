@@ -36,20 +36,45 @@ export default function AddEmployeeForm() {
     skillCopy.push(newSkill);
     setSkillList(skillCopy);
     skillInputRef.current.value = "";
-  }
+  };
 
   return (
     <StyledAddEmployee>
       <h4>Add New Employee</h4>
       <form onSubmit={(e) => handleAddEmployee(e)}>
-        <div className="employee-input">
-          <input type="text" placeholder="First name" ref={nameInputRef} />
-          {/* <input type="text" placeholder="Last Name" /> */}
+        <div className="first-row">
+          <div className="employee-input">
+            <label htmlFor="name">Employee Name</label>
+            <input type="text" placeholder="First name" ref={nameInputRef} />
+            {/* <input type="text" placeholder="Last Name" /> */}
+          </div>
+          <div className="employee-input">
+            <label htmlFor="title">Employee Role</label>
+            <input
+              type="text"
+              id="title"
+              placeholder="employee title"
+              ref={titleInputRef}
+            />
+          </div>
         </div>
         <div className="employee-input">
-          <input type="text" placeholder="employee title" ref={titleInputRef} />
-          <input type="text" placeholder="department" ref={deptInputRef} />
-          <input type="text" placeholder="reports to" ref={superiorInputRef} />
+          <label htmlFor="department">Department</label>
+          <input
+            type="text"
+            placeholder="department"
+            id="department"
+            ref={deptInputRef}
+          />
+        </div>
+        <div className="employee-input">
+          <label htmlFor="superior">Reports to</label>
+          <input
+            type="text"
+            placeholder="reports to"
+            id="superior"
+            ref={superiorInputRef}
+          />
         </div>
         <input type="submit" />
       </form>
@@ -58,9 +83,10 @@ export default function AddEmployeeForm() {
           <input type="text" placeholder="skill" ref={skillInputRef} />
           <input type="submit" />
         </form>
-        {skillList && skillList.map((skill) => {
-          return <SkillBadge skill={skill} />
-        })}
+        {skillList &&
+          skillList.map((skill) => {
+            return <SkillBadge skill={skill} />;
+          })}
       </div>
     </StyledAddEmployee>
   );
