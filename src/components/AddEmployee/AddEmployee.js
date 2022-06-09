@@ -12,7 +12,6 @@ export default function AddEmployeeForm() {
   const superiorInputRef = useRef();
   const skillInputRef = useRef();
   const [skillList, setSkillList] = useState([]);
-  const [phase, setPhase] = useState("initial");
 
   const handleAddEmployee = (event) => {
     event.preventDefault();
@@ -26,12 +25,12 @@ export default function AddEmployeeForm() {
       title,
       department,
       superior,
+      skills: skillList
     };
     AddEmployee(newEmployeeObect);
   };
 
-  const handleAddSkill = (event) => {
-    event.preventDefault();
+  const handleAddSkill = () => {
     let skillCopy = [...skillList];
     const newSkill = skillInputRef.current.value;
     skillCopy.push(newSkill);
@@ -39,7 +38,6 @@ export default function AddEmployeeForm() {
     skillInputRef.current.value = "";
   };
 
-  if (phase === "initial") {
     return (
       <StyledAddEmployee>
         <h4>Add New Employee</h4>
@@ -79,27 +77,22 @@ export default function AddEmployeeForm() {
                 ref={superiorInputRef}
               />
             </div>
+            <div className="skills-input">
+              <div className="skills-wrapper">
+                {skillList &&
+                  skillList.map((skill) => {
+                    return <SkillBadge skill={skill} />;
+                  })}
+              </div>
+              <div>
+                <input type="text" placeholder="skill" ref={skillInputRef} />
+                <button onClick={handleAddSkill}>add skill to list</button>
+              </div>
+            </div>
+            <button type="submit">Add employee</button>
           </div>
-          <input type="submit" />
         </form>
       </StyledAddEmployee>
     );
   }
 
-  if (phase === "skills") {
-    return (
-      <div className="skills-input">
-        <div className="skills-wrapper">
-          {skillList &&
-            skillList.map((skill) => {
-              return <SkillBadge skill={skill} />;
-            })}
-        </div>
-        <form onSubmit={(e) => handleAddSkill(e)}>
-          <input type="text" placeholder="skill" ref={skillInputRef} />
-          <input type="submit" />
-        </form>
-      </div>
-    );
-  }
-}
