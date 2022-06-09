@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-const StyledTeamList = styled.div`
+const StyledMakeTeam = styled.div`
 
 `;
 
-export default StyledTeamList;
+export default StyledMakeTeam;

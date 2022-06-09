@@ -1,13 +1,21 @@
 import React from "react";
 
-import StyledTeamList from "./StyledTeamList";
+import StyledMakeTeam from "./StyledMakeTeam";
 
-const TeamList = () => {
+const MakeTeam = ({staff}) => {
 return (
-    <StyledTeamList>
-      
-    </StyledTeamList>
+    <StyledMakeTeam>
+      <form>
+        <input type="text" placeholder="team name" />
+        <input type="text" placeholder="team lead" />
+        <select name="employees" id="employees">
+          {staff.map((employee) => {
+            return <option value={employee.name}>{employee.name}</option>
+          })}
+        </select>
+      </form>
+    </StyledMakeTeam>
   );
 };
 
-export default TeamList;
+export default MakeTeam;

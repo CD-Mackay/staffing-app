@@ -1,7 +1,10 @@
 import React from "react";
-import StaffList from "../components/StaffList/StaffList";
+import MakeTeam from "../components/MakeTeam/MakeTeam";
 
-export default function Teams() {
-  return <div>
-  </div>;
+export default function Teams({staff}) {
+  return (
+    <div>
+      <MakeTeam staff={staff} />
+    </div>
+  );
 }
