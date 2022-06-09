@@ -24,6 +24,11 @@ export default function AddEmployeeForm() {
     const department = deptInputRef.current.value;
     const superior = superiorInputRef.current.value;
 
+    if (name === "" || title === "" || department === "" || superior === "") {
+      console.log("invalid inputs");
+      return;
+    }
+
     const newEmployeeObect = {
       name,
       title,
