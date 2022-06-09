@@ -38,6 +38,12 @@ export default function AddEmployeeForm() {
     skillInputRef.current.value = "";
   };
 
+  const handleRemoveSkill = (skill) => {
+    let skillCopy = [...skillList];
+    skillCopy = skillCopy.filter((element) => element !== skill);
+    setSkillList(skillCopy);
+  }
+
     return (
       <StyledAddEmployee>
         <h4>Add New Employee</h4>
@@ -81,7 +87,7 @@ export default function AddEmployeeForm() {
               <div className="skills-wrapper">
                 {skillList &&
                   skillList.map((skill) => {
-                    return <SkillBadge skill={skill} />;
+                    return <SkillBadge onDelete={handleRemoveSkill} skill={skill} />;
                   })}
               </div>
               <div>

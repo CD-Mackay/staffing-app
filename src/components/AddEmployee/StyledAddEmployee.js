@@ -14,6 +14,11 @@ const StyledAddEmployee = styled.div`
   width: 80%;
   align-items: center;
 }
+
+.skills-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
 .employee-input {
   max-width: 40%;
   min-width: 30%;
