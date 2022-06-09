@@ -1,6 +1,12 @@
 import styled from "styled-components";
 
 const StyledAddEmployee = styled.div`
+.new-header {
+  text-align: center;
+  h4 {
+    font-size: 28px;
+  }
+}
 
 .first-row {
   display: flex;

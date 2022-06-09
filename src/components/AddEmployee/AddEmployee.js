@@ -15,9 +15,9 @@ export default function AddEmployeeForm() {
 
   const handleAddEmployee = (event) => {
     event.preventDefault();
-     if(event.target.keyCode === 13) {
-       return
-     };
+    if (event.target.keyCode === 13) {
+      return;
+    }
 
     const name = nameInputRef.current.value;
     const title = titleInputRef.current.value;
@@ -29,7 +29,7 @@ export default function AddEmployeeForm() {
       title,
       department,
       superior,
-      skills: skillList
+      skills: skillList,
     };
     AddEmployee(newEmployeeObect);
   };
@@ -46,62 +46,74 @@ export default function AddEmployeeForm() {
     let skillCopy = [...skillList];
     skillCopy = skillCopy.filter((element) => element !== skill);
     setSkillList(skillCopy);
-  }
+  };
 
-    return (
-      <StyledAddEmployee>
+  return (
+    <StyledAddEmployee>
+      <div className="new-header">
         <h4>Add New Employee</h4>
-        <form onSubmit={(e) => handleAddEmployee(e)}>
-          <div className="first-row">
-            <div className="employee-input">
-              <label htmlFor="name">Employee Name</label>
-              <input type="text" placeholder="First name" ref={nameInputRef} />
-              {/* <input type="text" placeholder="Last Name" /> */}
-            </div>
-            <div className="employee-input">
-              <label htmlFor="title">Employee Role</label>
-              <input
-                type="text"
-                id="title"
-                placeholder="employee title"
-                ref={titleInputRef}
-              />
-            </div>
+      </div>
+      <form onSubmit={(e) => handleAddEmployee(e)}>
+        <div className="first-row">
+          <div className="employee-input">
+            <label htmlFor="name">Employee Name</label>
+            <input type="text" placeholder="First name" ref={nameInputRef} />
+            {/* <input type="text" placeholder="Last Name" /> */}
           </div>
-          <div className="input-wrapper">
-            <div className="employee-input">
-              <label htmlFor="department">Department</label>
-              <input
-                type="text"
-                placeholder="department"
-                id="department"
-                ref={deptInputRef}
-              />
-            </div>
-            <div className="employee-input">
-              <label htmlFor="superior">Reports to</label>
-              <input
-                type="text"
-                placeholder="reports to"
-                id="superior"
-                ref={superiorInputRef}
-              />
-            </div>
-            <div className="skills-input">
-              <p>*Optional: Use this section to tag any specific skills/qualifications this employee possesses</p>
-              <div className="skills-wrapper">
-                {skillList &&
-                  skillList.map((skill) => {
-                    return <SkillBadge onDelete={handleRemoveSkill} key={skill} skill={skill} />;
-                  })}
-              </div>
-                <input type="text" placeholder="skill" ref={skillInputRef} />
-                <button onClick={handleAddSkill}>Add</button>
-            </div>
-            <button id="new-employee-button" type="submit">Add employee</button>
+          <div className="employee-input">
+            <label htmlFor="title">Employee Role</label>
+            <input
+              type="text"
+              id="title"
+              placeholder="employee title"
+              ref={titleInputRef}
+            />
           </div>
-        </form>
-      </StyledAddEmployee>
-    );
-  }
-
+        </div>
+        <div className="input-wrapper">
+          <div className="employee-input">
+            <label htmlFor="department">Department</label>
+            <input
+              type="text"
+              placeholder="department"
+              id="department"
+              ref={deptInputRef}
+            />
+          </div>
+          <div className="employee-input">
+            <label htmlFor="superior">Reports to</label>
+            <input
+              type="text"
+              placeholder="reports to"
+              id="superior"
+              ref={superiorInputRef}
+            />
+          </div>
+          <div className="skills-input">
+            <p>
+              *Optional: Use this section to tag any specific
+              skills/qualifications this employee possesses
+            </p>
+            <div className="skills-wrapper">
+              {skillList &&
+                skillList.map((skill) => {
+                  return (
+                    <SkillBadge
+                      onDelete={handleRemoveSkill}
+                      key={skill}
+                      skill={skill}
+                    />
+                  );
+                })}
+            </div>
+            <input type="text" placeholder="skill" ref={skillInputRef} />
+            <button onClick={handleAddSkill}>Add</button>
+          </div>
+          <button id="new-employee-button" type="submit">
+            Add employee
+          </button>
+        </div>
+      </form>
+    </StyledAddEmployee>
+  );
+}
