@@ -37,6 +37,17 @@ const StyledAddEmployee = styled.div`
     border: 1px solid gray;
   }
 }
+#new-employee-button {
+  margin-top: 20px;
+  background-color: #BDF0C9;
+  border-radius: 5px;
+  padding: 15px;
+  border: none;
+}
+
+#new-employee-button:hover {
+  background-color: #A9D6B4;
+}
 `;
 
 export default StyledAddEmployee;

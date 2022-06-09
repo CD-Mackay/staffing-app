@@ -18,7 +18,7 @@ export default function AddEmployeeForm() {
      if(event.target.keyCode === 13) {
        return
      };
-     
+
     const name = nameInputRef.current.value;
     const title = titleInputRef.current.value;
     const department = deptInputRef.current.value;
@@ -99,7 +99,7 @@ export default function AddEmployeeForm() {
                 <button onClick={handleAddSkill}>add skill to list</button>
               </div>
             </div>
-            <button type="submit">Add employee</button>
+            <button id="new-employee-button" type="submit">Add employee</button>
           </div>
         </form>
       </StyledAddEmployee>
