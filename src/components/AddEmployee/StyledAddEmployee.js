@@ -6,8 +6,17 @@ const StyledAddEmployee = styled.div`
   display: flex;
   justify-content: center;
 }
+
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 80%;
+  align-items: center;
+}
 .employee-input {
-  width: 30%;
+  max-width: 40%;
+  min-width: 30%;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;

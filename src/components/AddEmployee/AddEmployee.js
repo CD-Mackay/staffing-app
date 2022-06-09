@@ -58,6 +58,7 @@ export default function AddEmployeeForm() {
             />
           </div>
         </div>
+        <div className="input-wrapper">
         <div className="employee-input">
           <label htmlFor="department">Department</label>
           <input
@@ -75,6 +76,7 @@ export default function AddEmployeeForm() {
             id="superior"
             ref={superiorInputRef}
           />
+        </div>
         </div>
         <input type="submit" />
       </form>
