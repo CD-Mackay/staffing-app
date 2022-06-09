@@ -12,6 +12,7 @@ export default function AddEmployeeForm() {
   const superiorInputRef = useRef();
   const skillInputRef = useRef();
   const [skillList, setSkillList] = useState([]);
+  const [phase, setPhase] = useState("initial");
 
   const handleAddEmployee = (event) => {
     event.preventDefault();
@@ -38,58 +39,67 @@ export default function AddEmployeeForm() {
     skillInputRef.current.value = "";
   };
 
-  return (
-    <StyledAddEmployee>
-      <h4>Add New Employee</h4>
-      <form onSubmit={(e) => handleAddEmployee(e)}>
-        <div className="first-row">
-          <div className="employee-input">
-            <label htmlFor="name">Employee Name</label>
-            <input type="text" placeholder="First name" ref={nameInputRef} />
-            {/* <input type="text" placeholder="Last Name" /> */}
+  if (phase === "initial") {
+    return (
+      <StyledAddEmployee>
+        <h4>Add New Employee</h4>
+        <form onSubmit={(e) => handleAddEmployee(e)}>
+          <div className="first-row">
+            <div className="employee-input">
+              <label htmlFor="name">Employee Name</label>
+              <input type="text" placeholder="First name" ref={nameInputRef} />
+              {/* <input type="text" placeholder="Last Name" /> */}
+            </div>
+            <div className="employee-input">
+              <label htmlFor="title">Employee Role</label>
+              <input
+                type="text"
+                id="title"
+                placeholder="employee title"
+                ref={titleInputRef}
+              />
+            </div>
           </div>
-          <div className="employee-input">
-            <label htmlFor="title">Employee Role</label>
-            <input
-              type="text"
-              id="title"
-              placeholder="employee title"
-              ref={titleInputRef}
-            />
+          <div className="input-wrapper">
+            <div className="employee-input">
+              <label htmlFor="department">Department</label>
+              <input
+                type="text"
+                placeholder="department"
+                id="department"
+                ref={deptInputRef}
+              />
+            </div>
+            <div className="employee-input">
+              <label htmlFor="superior">Reports to</label>
+              <input
+                type="text"
+                placeholder="reports to"
+                id="superior"
+                ref={superiorInputRef}
+              />
+            </div>
           </div>
-        </div>
-        <div className="input-wrapper">
-        <div className="employee-input">
-          <label htmlFor="department">Department</label>
-          <input
-            type="text"
-            placeholder="department"
-            id="department"
-            ref={deptInputRef}
-          />
-        </div>
-        <div className="employee-input">
-          <label htmlFor="superior">Reports to</label>
-          <input
-            type="text"
-            placeholder="reports to"
-            id="superior"
-            ref={superiorInputRef}
-          />
-        </div>
-        </div>
-        <input type="submit" />
-      </form>
+          <input type="submit" />
+        </form>
+      </StyledAddEmployee>
+    );
+  }
+
+  if (phase === "skills") {
+    return (
       <div className="skills-input">
+        <div className="skills-wrapper">
+          {skillList &&
+            skillList.map((skill) => {
+              return <SkillBadge skill={skill} />;
+            })}
+        </div>
         <form onSubmit={(e) => handleAddSkill(e)}>
           <input type="text" placeholder="skill" ref={skillInputRef} />
           <input type="submit" />
         </form>
-        {skillList &&
-          skillList.map((skill) => {
-            return <SkillBadge skill={skill} />;
-          })}
       </div>
-    </StyledAddEmployee>
-  );
+    );
+  }
 }
