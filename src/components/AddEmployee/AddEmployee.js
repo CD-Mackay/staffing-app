@@ -88,16 +88,15 @@ export default function AddEmployeeForm() {
               />
             </div>
             <div className="skills-input">
+              <p>*Optional: Use this section to tag any specific skills/qualifications this employee possesses</p>
               <div className="skills-wrapper">
                 {skillList &&
                   skillList.map((skill) => {
                     return <SkillBadge onDelete={handleRemoveSkill} key={skill} skill={skill} />;
                   })}
               </div>
-              <div>
                 <input type="text" placeholder="skill" ref={skillInputRef} />
-                <button onClick={handleAddSkill}>add skill to list</button>
-              </div>
+                <button onClick={handleAddSkill}>Add</button>
             </div>
             <button id="new-employee-button" type="submit">Add employee</button>
           </div>

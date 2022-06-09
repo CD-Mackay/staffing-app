@@ -18,6 +18,15 @@ const StyledAddEmployee = styled.div`
 .skills-wrapper {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  width: 40%;
+  margin: 0 auto;
+ 
+}
+
+.skills-input {
+  text-align: center;
+  margin-top: 40px;
 }
 .employee-input {
   max-width: 40%;
@@ -38,7 +47,7 @@ const StyledAddEmployee = styled.div`
   }
 }
 #new-employee-button {
-  margin-top: 20px;
+  margin-top: 40px;
   background-color: #BDF0C9;
   border-radius: 5px;
   padding: 15px;
