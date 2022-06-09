@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import StyledHeader from "./StyledHeader";
 
 const Header = () => {
-  return (
+return (
     <StyledHeader>
       <div className="logo">
         <BsPersonSquare fontSize="42px" color="pink" />
