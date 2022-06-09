@@ -15,6 +15,10 @@ export default function AddEmployeeForm() {
 
   const handleAddEmployee = (event) => {
     event.preventDefault();
+     if(event.target.keyCode === 13) {
+       return
+     };
+     
     const name = nameInputRef.current.value;
     const title = titleInputRef.current.value;
     const department = deptInputRef.current.value;
@@ -87,7 +91,7 @@ export default function AddEmployeeForm() {
               <div className="skills-wrapper">
                 {skillList &&
                   skillList.map((skill) => {
-                    return <SkillBadge onDelete={handleRemoveSkill} skill={skill} />;
+                    return <SkillBadge onDelete={handleRemoveSkill} key={skill} skill={skill} />;
                   })}
               </div>
               <div>
