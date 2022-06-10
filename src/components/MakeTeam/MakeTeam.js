@@ -21,7 +21,8 @@ const MakeTeam = ({ staff }) => {
     setSelected(event.target.value);
   };
 
-  const handleSetTeam = () => {
+  const handleSetTeam = (e) => {
+    e.preventDefault();
     const teamName = teamNameRef.current.value;
     let teamObject = {
       lead,
@@ -34,7 +35,7 @@ const MakeTeam = ({ staff }) => {
 
   return (
     <StyledMakeTeam>
-      <form onSubmit={handleSetTeam}>
+      <form onSubmit={(e) => handleSetTeam(e)}>
         <input type="text" placeholder="team name" ref={teamNameRef} />
         <select
           name="employees"
