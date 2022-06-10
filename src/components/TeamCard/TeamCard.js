@@ -3,7 +3,6 @@ import React from "react";
 import StyledTeamCard from "./StyledTeamCard";
 
 const TeamCard = ({ name, lead, team }) => {
-  console.log(name, lead, team);
   return (
     <StyledTeamCard>
       <h6>
@@ -12,7 +11,7 @@ const TeamCard = ({ name, lead, team }) => {
       <ul>
       {team &&
         team.map((element) => {
-          return <li>{element}</li>;
+          return <li>{element}<button>x</button></li>;
         })}
         {!team && <li>No members in this team</li>}
         </ul>
