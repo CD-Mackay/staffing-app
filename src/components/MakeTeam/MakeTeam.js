@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
+
+import { addTeam } from "../../utilities/db-helpers";
 
 import StyledMakeTeam from "./StyledMakeTeam";
 
 const MakeTeam = ({ staff }) => {
   const [teamList, setTeamList] = useState([]);
   const [selected, setSelected] = useState("");
+  const [lead, setLead] = useState("");
+  const teamNameRef = useRef();
 
   const handleAddToTeam = (event) => {
     event.preventDefault();
@@ -17,14 +21,38 @@ const MakeTeam = ({ staff }) => {
     setSelected(event.target.value);
   };
 
+  const handleSetTeam = () => {
+    const teamName = teamNameRef.current.value;
+    let teamObject = {
+      lead,
+      teamName,
+      team: teamList
+    };
+
+    addTeam(teamObject);
+  }
+
   return (
     <StyledMakeTeam>
-      <form>
-        <input type="text" placeholder="team name" />
-        <input type="text" placeholder="team lead" />
+      <form onSubmit={handleSetTeam}>
+        <input type="text" placeholder="team name" ref={teamNameRef} />
+        <select
+          name="employees"
+          id="employees"
+          onChange={(e) => setLead(e.target.value)}
+        >
+          {staff.map((employee) => {
+            return <option value={employee.name}>{employee.name}</option>;
+          })}
+        </select>
+        <button type="submit">Create Team</button>
       </form>
 
       <form onSubmit={(e) => handleAddToTeam(e)}>
+        {lead && <p>Team Lead:{lead}</p>}
+        {teamList.map((element) => {
+          return <p>{element}</p>
+        })}
         <select
           name="employees"
           id="employees"

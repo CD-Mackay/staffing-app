@@ -14,6 +14,17 @@ export async function getAllStaff() {
   return staff;
 };
 
+export async function addTeam(object) {
+  const response = await fetch(`https://staffing-app-8610f-default-rtdb.firebaseio.com/teams.json`, {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(object)
+  });
+
+  const data = await response.json();
+  return data;
+}
+
 export async function AddEmployee(object) {
   const response = await fetch(`https://staffing-app-8610f-default-rtdb.firebaseio.com/staff.json`, {
     method: 'POST',
