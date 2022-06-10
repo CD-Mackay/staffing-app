@@ -19,7 +19,7 @@ const TeamList = () => {
 
   return <StyledTeamList>
     {teams && teams.map((team) => {
-      return <TeamCard name={team.teamName} lead={team.lead} />
+      return <TeamCard name={team.teamName} lead={team.lead} team={team.team} />
     })}
   </StyledTeamList>;
 };

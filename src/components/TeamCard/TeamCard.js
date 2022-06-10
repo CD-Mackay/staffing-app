@@ -1,14 +1,21 @@
 import React from "react";
 
-
 import StyledTeamCard from "./StyledTeamCard";
 
-const TeamCard = () => {
-
-
+const TeamCard = ({ name, lead, team }) => {
+  console.log(name, lead, team);
   return (
     <StyledTeamCard>
-      Hello, I am TeamCard
+      <h6>
+        {name} -- Team Lead: {lead}
+      </h6>
+      <ul>
+      {team &&
+        team.map((element) => {
+          return <li>{element}</li>;
+        })}
+        {!team && <li>No members in this team</li>}
+        </ul>
     </StyledTeamCard>
   );
 };
