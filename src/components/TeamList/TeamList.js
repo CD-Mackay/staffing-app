@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import StyledTeamList from "./StyledTeamList";
 
 import { getAllTeams } from "../../utilities/db-helpers";
+import TeamCard from "../TeamCard/TeamCard";
 
 const TeamList = () => {
 
@@ -16,15 +17,9 @@ const TeamList = () => {
     makeTeamList();
   }, []);
 
-  const TeamDisplay = ({name, lead}) => {
-    return <div>
-      <p>{name}</p>
-      <p>{lead}</p>
-    </div> 
-  }
   return <StyledTeamList>
     {teams && teams.map((team) => {
-      return <TeamDisplay name={team.teamName} lead={team.lead} />
+      return <TeamCard name={team.teamName} lead={team.lead} />
     })}
   </StyledTeamList>;
 };
