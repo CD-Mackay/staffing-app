@@ -15,7 +15,7 @@ export async function getAllStaff() {
 };
 
 export async function getAllTeams() {
-  const response = await fetch(' https://staffing-app-8610f-default-rtdb.firebaseio.com/staff.json');
+  const response = await fetch(' https://staffing-app-8610f-default-rtdb.firebaseio.com/teams.json');
   const data = await response.json();
 
   const teams = [];

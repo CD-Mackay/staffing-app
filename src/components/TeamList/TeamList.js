@@ -15,7 +15,18 @@ const TeamList = () => {
   useEffect(() => {
     makeTeamList();
   }, []);
-  return <StyledTeamList></StyledTeamList>;
+
+  const TeamDisplay = ({name, lead}) => {
+    return <div>
+      <p>{name}</p>
+      <p>{lead}</p>
+    </div> 
+  }
+  return <StyledTeamList>
+    {teams && teams.map((team) => {
+      return <TeamDisplay name={team.teamName} lead={team.lead} />
+    })}
+  </StyledTeamList>;
 };
 
 export default TeamList;
