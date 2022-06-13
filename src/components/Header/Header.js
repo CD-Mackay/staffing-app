@@ -5,14 +5,14 @@ import Alert from "../Alert/Alert";
 
 import StyledHeader from "./StyledHeader";
 
-const Header = () => {
+const Header = ({alert}) => {
 return (
     <StyledHeader>
       <div className="logo">
         <BsPersonSquare fontSize="42px" color="pink" />
         <h4>Staffify</h4>
       </div>
-      <Alert />
+      <Alert alert={alert} />
       <div className="nav">
         <Link to="/new">
           <p>Add New Employee</p>
