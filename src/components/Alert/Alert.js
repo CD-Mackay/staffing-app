@@ -8,7 +8,7 @@ const Alert = () => {
 
   return (
     <StyledAlert>
-   
+      <span>ALert!! A message will go here!</span>
     </StyledAlert>
   );
 };
