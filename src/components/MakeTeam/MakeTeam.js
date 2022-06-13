@@ -54,7 +54,7 @@ const MakeTeam = ({ staff }) => {
           onChange={(e) => setLead(e.target.value)}
         >
           {staff.map((employee) => {
-            return <option value={employee.name}>{employee.name}</option>;
+            return <option key={employee.id} value={employee.name}>{employee.name}</option>;
           })}
         </select>
         <button type="submit">Create Team</button>
@@ -71,7 +71,7 @@ const MakeTeam = ({ staff }) => {
           onChange={(e) => handleSelectEmployee(e)}
         >
           {staff.map((employee) => {
-            return <option value={employee.name}>{employee.name}</option>;
+            return <option key={employee.id} value={employee.name}>{employee.name}</option>;
           })}
         </select>
         <button type="submit">add to team</button>

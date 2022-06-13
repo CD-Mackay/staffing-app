@@ -11,7 +11,7 @@ const TeamCard = ({ name, lead, team }) => {
       <ul>
       {team &&
         team.map((element) => {
-          return <li>{element}<button>x</button></li>;
+          return <li key={element}>{element}<button>x</button></li>;
         })}
         {!team && <li>No members in this team</li>}
         </ul>
