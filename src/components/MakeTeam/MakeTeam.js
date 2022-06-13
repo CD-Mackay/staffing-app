@@ -24,13 +24,18 @@ const MakeTeam = ({ staff }) => {
   const handleSetTeam = (e) => {
     e.preventDefault();
     const teamName = teamNameRef.current.value;
-    let teamObject = {
-      lead,
-      teamName,
-      team: teamList
+    if (lead !== "" && teamName !== "" && teamList !== []) {
+      let teamObject = {
+        lead,
+        teamName,
+        team: teamList
+      };
+  
+      addTeam(teamObject);
+      return
     };
-
-    addTeam(teamObject);
+    console.log("invalid team!")
+   
   }
 
   return (
