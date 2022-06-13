@@ -1,7 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const AlertContext = React.createContext({});
 
-export const AlertProvider = AlertContext.Provider;
+export function AlertContextProvider(props) {
+
+  const [alert, setAlert] = useState("")
+  const context = {
+    alert,
+    setAlert
+  }
+
+  return <AlertContext.Provider value={context}>
+    {props.children}
+  </AlertContext.Provider>
+}
 
 export default AlertContext;

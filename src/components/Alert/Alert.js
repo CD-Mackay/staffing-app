@@ -4,10 +4,10 @@ import StyledAlert from "./StyledAlert";
 
 // Component Imports
 
-const Alert = ({ alert }) => {
+const Alert = () => {
 
   return (
-    <StyledAlert alert={alert}>
+    <StyledAlert >
       <span>ALert!! A message will go here!</span>
     </StyledAlert>
   );

@@ -15,7 +15,6 @@ function App() {
   const [searchValue, setSearchValue] = useState("");
   const [parameter, setParameter] = useState("name");
   const [staff, setStaff] = useState([]);
-  const [alert, setAlert] = useState(false);
 
   const makeStaffList = async () => {
     let result = await getAllStaff();
@@ -29,7 +28,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <Header alert={alert}/>
+        <Header/>
         <div className="layout">
           <Routes>
             <Route
