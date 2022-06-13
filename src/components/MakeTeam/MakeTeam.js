@@ -1,6 +1,7 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useContext } from "react";
 
 import { addTeam } from "../../utilities/db-helpers";
+import AlertContext from "../../Context/AlertContext";
 
 import StyledMakeTeam from "./StyledMakeTeam";
 
@@ -9,6 +10,9 @@ const MakeTeam = ({ staff }) => {
   const [selected, setSelected] = useState("");
   const [lead, setLead] = useState("");
   const teamNameRef = useRef();
+
+  const alertObject = useContext(AlertContext);
+  const { alert, setAlert} = alertObject;
 
   const handleAddToTeam = (event) => {
     event.preventDefault();
@@ -34,8 +38,10 @@ const MakeTeam = ({ staff }) => {
       addTeam(teamObject);
       return
     };
-    console.log("invalid team!")
-   
+    setAlert({
+      color: "red",
+      message: "All teams must have a name, lead and at least one member"
+    });
   }
 
   return (

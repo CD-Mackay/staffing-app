@@ -9,7 +9,7 @@ export function AlertContextProvider(props) {
     setAlert(input);
     setTimeout(() => {
       setAlert("");
-    }, 500);
+    }, 2000);
   }
 
   const context = {

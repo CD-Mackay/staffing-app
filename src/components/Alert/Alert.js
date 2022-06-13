@@ -11,7 +11,7 @@ const alertObject = useContext(AlertContext);
 console.log(alertObject);
   return (
     <StyledAlert alert={alertObject.alert} color={alertObject.alert.color}>
-      <span>ALert!! A message will go here!</span>
+      <span>{alertObject.alert.message}</span>
     </StyledAlert>
   );
 };
