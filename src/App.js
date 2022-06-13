@@ -28,7 +28,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <Header />
+        <Header/>
         <div className="layout">
           <Routes>
             <Route

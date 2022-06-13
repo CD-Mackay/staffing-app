@@ -1,6 +1,7 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useContext } from "react";
 
 import { addTeam } from "../../utilities/db-helpers";
+import AlertContext from "../../Context/AlertContext";
 
 import StyledMakeTeam from "./StyledMakeTeam";
 
@@ -9,6 +10,9 @@ const MakeTeam = ({ staff }) => {
   const [selected, setSelected] = useState("");
   const [lead, setLead] = useState("");
   const teamNameRef = useRef();
+
+  const alertObject = useContext(AlertContext);
+  const { alert, setAlert} = alertObject;
 
   const handleAddToTeam = (event) => {
     event.preventDefault();
@@ -24,13 +28,20 @@ const MakeTeam = ({ staff }) => {
   const handleSetTeam = (e) => {
     e.preventDefault();
     const teamName = teamNameRef.current.value;
-    let teamObject = {
-      lead,
-      teamName,
-      team: teamList
+    if (lead !== "" && teamName !== "" && teamList !== []) {
+      let teamObject = {
+        lead,
+        teamName,
+        team: teamList
+      };
+  
+      addTeam(teamObject);
+      return
     };
-
-    addTeam(teamObject);
+    setAlert({
+      color: "#f66359",
+      message: "All teams must have a name, lead and at least one member"
+    });
   }
 
   return (
@@ -43,7 +54,7 @@ const MakeTeam = ({ staff }) => {
           onChange={(e) => setLead(e.target.value)}
         >
           {staff.map((employee) => {
-            return <option value={employee.name}>{employee.name}</option>;
+            return <option key={employee.id} value={employee.name}>{employee.name}</option>;
           })}
         </select>
         <button type="submit">Create Team</button>
@@ -60,7 +71,7 @@ const MakeTeam = ({ staff }) => {
           onChange={(e) => handleSelectEmployee(e)}
         >
           {staff.map((employee) => {
-            return <option value={employee.name}>{employee.name}</option>;
+            return <option key={employee.id} value={employee.name}>{employee.name}</option>;
           })}
         </select>
         <button type="submit">add to team</button>
