@@ -39,7 +39,7 @@ const MakeTeam = ({ staff }) => {
       return
     };
     setAlert({
-      color: "red",
+      color: "#f66359",
       message: "All teams must have a name, lead and at least one member"
     });
   }

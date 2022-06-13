@@ -30,7 +30,7 @@ export default function AddEmployeeForm() {
     if (name === "" || title === "" || department === "" || superior === "") {
       console.log("invalid inputs");
       setAlert({
-        color: "red",
+        color: "#f66359",
         message: "All fields are required"
       });
       return;
