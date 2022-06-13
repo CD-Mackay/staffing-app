@@ -1,11 +1,14 @@
-import React, { useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 
 import { AddEmployee } from "../../utilities/db-helpers";
 import SkillBadge from "../SkillBadge/SkillBadge";
 
 import StyledAddEmployee from "./StyledAddEmployee";
+import AlertContext from "../../Context/AlertContext";
 
 export default function AddEmployeeForm() {
+  const alertObject = useContext(AlertContext);
+  const { alert, setAlert} = alertObject;
   const nameInputRef = useRef();
   const titleInputRef = useRef();
   const deptInputRef = useRef();
@@ -26,6 +29,10 @@ export default function AddEmployeeForm() {
 
     if (name === "" || title === "" || department === "" || superior === "") {
       console.log("invalid inputs");
+      setAlert({
+        color: "red",
+        message: "All fields are required"
+      });
       return;
     }
 
