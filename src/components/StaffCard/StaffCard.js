@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import FlagButton from "../FlagButton/FlagButton";
 import CustomInput from "../Input/CustomInput";
 import SkillBadge from "../SkillBadge/SkillBadge";
-import { updateSKill } from "../../utilities/db-helpers";
+import { updateSKill, deleteEmployee } from "../../utilities/db-helpers";
 
 
 import StyledStaffCard from "./styledStaffCard";
@@ -35,6 +35,7 @@ const StaffCard = ({ employee }) => {
       <div className="employee-header">
         <h4>{name}</h4>
         <p> - {title}</p>
+        <p>{id}</p>
       </div>
       <div className="employee-info">
         <div>
@@ -56,6 +57,7 @@ const StaffCard = ({ employee }) => {
           <FlagButton flag={flagged} userId={id} setFlag={setFlagged} />
         </div>
       </div>
+      <button onClick={() => deleteEmployee(id)}>delete</button>
     </StyledStaffCard>
   );
 };
