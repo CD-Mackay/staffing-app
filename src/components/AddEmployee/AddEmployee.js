@@ -44,6 +44,12 @@ export default function AddEmployeeForm() {
       skills: skillList,
     };
     AddEmployee(newEmployeeObect);
+    skillInputRef.current.value = "";
+    titleInputRef.current.value = "";
+    deptInputRef.current.value = "";
+    nameInputRef.current.value = "";
+    superiorInputRef.current.value = "";
+
   };
 
   const handleAddSkill = () => {
