@@ -5,12 +5,11 @@ import SkillBadge from "../SkillBadge/SkillBadge";
 import { updateSKill, deleteEmployee } from "../../utilities/db-helpers";
 import AlertContext from "../../Context/AlertContext";
 
-
 import StyledStaffCard from "./styledStaffCard";
 
 const StaffCard = ({ employee }) => {
   const alertObject = useContext(AlertContext);
-  const { setAlert} = alertObject;
+  const { setAlert } = alertObject;
   const { name, department, skills, id, flag, superior, title } = employee;
   const [employeeSkills, setEmployeeSkills] = useState(skills ? skills : []);
   const [flagged, setFlagged] = useState(flag === "null" ? null : flag);
@@ -24,11 +23,26 @@ const StaffCard = ({ employee }) => {
 
   const handleDeleteEmployee = () => {
     setAlert({
-      message: <span>This is permant, are you sure? <button onClick={() => deleteEmployee(id)}>oui</button><button onClick={() => setAlert("")}>non</button></span>,
-      color: "#f66359",
-      timer: false
+      color: "green",
+      message: `${name} has been removed from your Staffify list`,
+      timer: true
     })
+    deleteEmployee(id)
   }
+
+  const confirmDeleteEmployee = () => {
+    setAlert({
+      message: (
+        <span>
+          This is permant, are you sure?{" "}
+          <button onClick={() => handleDeleteEmployee()}>oui</button>
+          <button onClick={() => setAlert("")}>non</button>
+        </span>
+      ),
+      color: "#f66359",
+      timer: false,
+    });
+  };
 
   const handleRemoveSkill = (input) => {
     let skillsArray = [...employeeSkills];
@@ -47,7 +61,7 @@ const StaffCard = ({ employee }) => {
           <h4>{name}</h4>
           <p> - {title}</p>
         </div>
-        <button className="delete-button" onClick={handleDeleteEmployee}>
+        <button className="delete-button" onClick={confirmDeleteEmployee}>
           delete
         </button>
       </div>
