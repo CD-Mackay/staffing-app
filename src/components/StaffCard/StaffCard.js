@@ -27,7 +27,7 @@ const StaffCard = ({ employee }) => {
       message: `${name} has been removed from your Staffify list`,
       timer: true
     })
-    deleteEmployee(id)
+    deleteEmployee(id);
   }
 
   const confirmDeleteEmployee = () => {
