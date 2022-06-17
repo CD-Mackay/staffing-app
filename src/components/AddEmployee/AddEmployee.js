@@ -16,7 +16,7 @@ export default function AddEmployeeForm() {
   const skillInputRef = useRef();
   const [skillList, setSkillList] = useState([]);
 
-  const handleAddEmployee = (event) => {
+  async function handleAddEmployee(event){
     event.preventDefault();
     if (event.target.keyCode === 13) {
       return;
@@ -43,12 +43,18 @@ export default function AddEmployeeForm() {
       superior,
       skills: skillList,
     };
-    AddEmployee(newEmployeeObect);
+    const response = await AddEmployee(newEmployeeObect);
     skillInputRef.current.value = "";
     titleInputRef.current.value = "";
     deptInputRef.current.value = "";
     nameInputRef.current.value = "";
     superiorInputRef.current.value = "";
+    if (response) {
+      setAlert({
+        color: "green",
+        message: `New Employee ${name} has been added to the staff!`
+      })
+    }
 
   };
 
