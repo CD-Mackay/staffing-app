@@ -28,7 +28,6 @@ export default function AddEmployeeForm() {
     const superior = superiorInputRef.current.value;
 
     if (name === "" || title === "" || department === "" || superior === "") {
-      console.log("invalid inputs");
       setAlert({
         color: "#f66359",
         message: "All fields are required",
