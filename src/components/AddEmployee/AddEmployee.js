@@ -31,7 +31,8 @@ export default function AddEmployeeForm() {
       console.log("invalid inputs");
       setAlert({
         color: "#f66359",
-        message: "All fields are required"
+        message: "All fields are required",
+        timer: true
       });
       return;
     }
@@ -52,7 +53,8 @@ export default function AddEmployeeForm() {
     if (response) {
       setAlert({
         color: "green",
-        message: `New Employee ${name} has been added to the staff!`
+        message: `New Employee ${name} has been added to the staff!`,
+        timer: true
       })
     }
 
