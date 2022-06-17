@@ -25,10 +25,10 @@ const StaffCard = ({ employee }) => {
     setAlert({
       color: "green",
       message: `${name} has been removed from your Staffify list`,
-      timer: true
-    })
+      timer: true,
+    });
     deleteEmployee(id);
-  }
+  };
 
   const confirmDeleteEmployee = () => {
     setAlert({

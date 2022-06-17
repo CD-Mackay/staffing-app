@@ -28,7 +28,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <Header/>
+        <Header />
         <div className="layout">
           <Routes>
             <Route
@@ -44,7 +44,7 @@ function App() {
               }
             />
             <Route path="/new" element={<NewEmployee />} />
-            <Route path="/teams" element={<Teams staff={staff}  />} />
+            <Route path="/teams" element={<Teams staff={staff} />} />
           </Routes>
         </div>
       </div>

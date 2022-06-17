@@ -8,7 +8,7 @@ import AlertContext from "../../Context/AlertContext";
 
 export default function AddEmployeeForm() {
   const alertObject = useContext(AlertContext);
-  const { setAlert} = alertObject;
+  const { setAlert } = alertObject;
   const nameInputRef = useRef();
   const titleInputRef = useRef();
   const deptInputRef = useRef();
@@ -16,7 +16,7 @@ export default function AddEmployeeForm() {
   const skillInputRef = useRef();
   const [skillList, setSkillList] = useState([]);
 
-  async function handleAddEmployee(event){
+  async function handleAddEmployee(event) {
     event.preventDefault();
     if (event.target.keyCode === 13) {
       return;
@@ -32,7 +32,7 @@ export default function AddEmployeeForm() {
       setAlert({
         color: "#f66359",
         message: "All fields are required",
-        timer: true
+        timer: true,
       });
       return;
     }
@@ -54,11 +54,10 @@ export default function AddEmployeeForm() {
       setAlert({
         color: "green",
         message: `New Employee ${name} has been added to the staff!`,
-        timer: true
-      })
+        timer: true,
+      });
     }
-
-  };
+  }
 
   const handleAddSkill = () => {
     let skillCopy = [...skillList];
