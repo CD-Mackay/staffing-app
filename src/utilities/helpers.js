@@ -16,9 +16,11 @@ export const filterByDept = (array, parameter) => {
 
 export const filterBySkills = (array, parameter) => {
   return array.filter((employee) => {
-    for (let skill of employee.skills) {
-      if (skill.toLowerCase().includes(parameter.toLowerCase())) {
-        return true;
+    if (employee.skills) {
+      for (let skill of employee.skills) {
+        if (skill.toLowerCase().includes(parameter.toLowerCase())) {
+          return true;
+        }
       }
     }
   });
