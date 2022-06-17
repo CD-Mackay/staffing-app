@@ -8,7 +8,7 @@ import AlertContext from "../../Context/AlertContext";
 
 export default function AddEmployeeForm() {
   const alertObject = useContext(AlertContext);
-  const { alert, setAlert} = alertObject;
+  const { setAlert } = alertObject;
   const nameInputRef = useRef();
   const titleInputRef = useRef();
   const deptInputRef = useRef();
@@ -16,7 +16,7 @@ export default function AddEmployeeForm() {
   const skillInputRef = useRef();
   const [skillList, setSkillList] = useState([]);
 
-  const handleAddEmployee = (event) => {
+  async function handleAddEmployee(event) {
     event.preventDefault();
     if (event.target.keyCode === 13) {
       return;
@@ -28,10 +28,10 @@ export default function AddEmployeeForm() {
     const superior = superiorInputRef.current.value;
 
     if (name === "" || title === "" || department === "" || superior === "") {
-      console.log("invalid inputs");
       setAlert({
         color: "#f66359",
-        message: "All fields are required"
+        message: "All fields are required",
+        timer: true,
       });
       return;
     }
@@ -43,8 +43,20 @@ export default function AddEmployeeForm() {
       superior,
       skills: skillList,
     };
-    AddEmployee(newEmployeeObect);
-  };
+    const response = await AddEmployee(newEmployeeObect);
+    skillInputRef.current.value = "";
+    titleInputRef.current.value = "";
+    deptInputRef.current.value = "";
+    nameInputRef.current.value = "";
+    superiorInputRef.current.value = "";
+    if (response) {
+      setAlert({
+        color: "green",
+        message: `New Employee ${name} has been added to the staff!`,
+        timer: true,
+      });
+    }
+  }
 
   const handleAddSkill = () => {
     let skillCopy = [...skillList];

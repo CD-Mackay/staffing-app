@@ -27,6 +27,10 @@ const StyledStaffCard = styled.div`
   .employee-header {
     grid-area: header;
     display: flex;
+    justify-content: space-between;
+    div {
+      display: flex;
+    }
     h4 {
       font-size: 36px;
       margin: 0px;

@@ -12,7 +12,7 @@ const MakeTeam = ({ staff }) => {
   const teamNameRef = useRef();
 
   const alertObject = useContext(AlertContext);
-  const { alert, setAlert} = alertObject;
+  const { setAlert} = alertObject;
 
   const handleAddToTeam = (event) => {
     event.preventDefault();

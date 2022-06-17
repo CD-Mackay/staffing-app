@@ -1,27 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const AlertContext = React.createContext({});
 
 export function AlertContextProvider(props) {
-
   const [alert, setAlert] = useState("");
   const handleChangeAlert = (input) => {
     setAlert(input);
-    setTimeout(() => {
-      setAlert("");
-    }, 2000);
-  }
+    if (input.timer === true) {
+      setTimeout(() => {
+        setAlert("");
+      }, 2000);
+    }
+  };
 
   const context = {
     alert,
-    setAlert: handleChangeAlert
+    setAlert: handleChangeAlert,
   };
 
-  
-
-  return <AlertContext.Provider value={context}>
-    {props.children}
-  </AlertContext.Provider>
+  return (
+    <AlertContext.Provider value={context}>
+      {props.children}
+    </AlertContext.Provider>
+  );
 }
 
 export default AlertContext;

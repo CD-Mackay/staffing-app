@@ -50,6 +50,19 @@ export async function AddEmployee(object) {
   });
 
   const data = await response.json();
+  console.log(data);
+  return data;
+};
+
+export async function deleteEmployee(userId) {
+  const response = await fetch(`https://staffing-app-8610f-default-rtdb.firebaseio.com/staff/${userId}.json`, {
+    method: 'DELETE',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(userId)
+  });
+
+  const data = await response.json();
+  console.log(data);
   return data;
 }
 

@@ -8,7 +8,6 @@ import AlertContext from "../../Context/AlertContext";
 const Alert = () => {
 
 const alertObject = useContext(AlertContext);
-console.log(alertObject);
   return (
     <StyledAlert alert={alertObject.alert} color={alertObject.alert.color}>
       <span>{alertObject.alert.message}</span>

@@ -7,7 +7,7 @@ const SkillBadge = ({ skill, onDelete }) => {
     <StyledSkillBadge>
       <span>{skill}</span>
       <div className="badge-button">
-      <button onClick={() => onDelete(skill)}>x</button>
+        <button onClick={() => onDelete(skill)}>x</button>
       </div>
     </StyledSkillBadge>
   );
