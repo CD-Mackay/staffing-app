@@ -8,7 +8,7 @@ import AlertContext from "../../Context/AlertContext";
 
 export default function AddEmployeeForm() {
   const alertObject = useContext(AlertContext);
-  const { alert, setAlert} = alertObject;
+  const { setAlert} = alertObject;
   const nameInputRef = useRef();
   const titleInputRef = useRef();
   const deptInputRef = useRef();
