@@ -18,9 +18,12 @@ const TeamCard = ({ name, lead, team }) => {
   };
   return (
     <StyledTeamCard>
-      <h6>
-        {name} -- Team Lead: {lead}
-      </h6>
+      <div className="team-header">
+        <h5>
+          {name} -- Team Lead: {lead}
+        </h5>
+        <button>Delete team</button>
+      </div>
       <ul>
         {team &&
           team.map((element) => {

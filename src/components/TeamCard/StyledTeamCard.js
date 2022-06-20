@@ -9,6 +9,11 @@ ul {
   list-style-type: none;
 }
 
+.team-header {
+  display: flex;
+  justify-content: space-between;
+}
+
 .employee-listing {
   display: flex;
   max-width: 200px;
