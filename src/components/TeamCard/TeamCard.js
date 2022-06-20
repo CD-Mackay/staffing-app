@@ -1,5 +1,7 @@
 import React from "react";
 
+import Button from "../../Button/Button";
+
 import StyledTeamCard from "./StyledTeamCard";
 
 const TeamCard = ({ name, lead, team }) => {
@@ -9,8 +11,8 @@ const TeamCard = ({ name, lead, team }) => {
         <div className="employee-listing">
           <p>{name}</p>
           <div>
-            <button>view employee</button>
-            <button>remove from team</button>
+            <Button message="view employee" />
+            <Button message="remove from team" />
           </div>
         </div>
       </li>
@@ -22,7 +24,7 @@ const TeamCard = ({ name, lead, team }) => {
         <h5>
           {name} -- Team Lead: {lead}
         </h5>
-        <button>Delete team</button>
+        <Button message="delete team" />
       </div>
       <ul>
         {team &&
