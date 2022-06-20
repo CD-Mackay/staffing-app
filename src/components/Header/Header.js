@@ -20,6 +20,9 @@ return (
         <Link to="/teams">
           <p>My Teams</p>
         </Link>
+        <Link to="/">
+          <p>Home</p>
+        </Link>
       </div>
     </StyledHeader>
   );
