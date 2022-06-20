@@ -40,6 +40,14 @@ const StyledStaffCard = styled.div`
     p {
       font-style: italic;
     }
+    button {
+      background: none;
+      border: 0px;
+      margin-right: 15px;
+    }
+    button:hover{ 
+      cursor: pointer;
+    }
   }
   .employee-info {
     display: flex;
