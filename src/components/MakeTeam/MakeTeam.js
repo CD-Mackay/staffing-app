@@ -2,6 +2,7 @@ import React, { useState, useRef, useContext } from "react";
 
 import { addTeam } from "../../utilities/db-helpers";
 import AlertContext from "../../Context/AlertContext";
+import Button from "../../Button/Button";
 
 import StyledMakeTeam from "./StyledMakeTeam";
 
@@ -63,13 +64,13 @@ const MakeTeam = ({ staff }) => {
             );
           })}
         </select>
-        <button type="submit">Create Team</button>
+        <Button message="Create Team" />
       </form>
 
       <form onSubmit={(e) => handleAddToTeam(e)}>
         {lead && <p>Team Lead:{lead}</p>}
         {teamList.map((element) => {
-          return <p>{element}</p>;
+          return <p key={element}>{element}</p>;
         })}
         <h4>Step 2: Select Employees for team</h4>
         <select
@@ -85,7 +86,7 @@ const MakeTeam = ({ staff }) => {
             );
           })}
         </select>
-        <button type="submit">add to team</button>
+        <Button message="add to team" />
       </form>
     </StyledMakeTeam>
   );
