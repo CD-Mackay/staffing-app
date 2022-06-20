@@ -29,7 +29,7 @@ const TeamCard = ({ name, lead, team }) => {
       <ul>
         {team &&
           team.map((element) => {
-            return <Listing name={element} />;
+            return <Listing key={element} name={element} />;
           })}
         {!team && <li>No members in this team</li>}
       </ul>
