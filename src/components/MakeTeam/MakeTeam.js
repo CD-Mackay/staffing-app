@@ -2,6 +2,7 @@ import React, { useState, useRef, useContext } from "react";
 
 import { addTeam } from "../../utilities/db-helpers";
 import AlertContext from "../../Context/AlertContext";
+import Button from "../../Button/Button";
 
 import StyledMakeTeam from "./StyledMakeTeam";
 
@@ -12,7 +13,7 @@ const MakeTeam = ({ staff }) => {
   const teamNameRef = useRef();
 
   const alertObject = useContext(AlertContext);
-  const { setAlert} = alertObject;
+  const { setAlert } = alertObject;
 
   const handleAddToTeam = (event) => {
     event.preventDefault();
@@ -32,49 +33,60 @@ const MakeTeam = ({ staff }) => {
       let teamObject = {
         lead,
         teamName,
-        team: teamList
+        team: teamList,
       };
-  
+
       addTeam(teamObject);
-      return
-    };
+      return;
+    }
     setAlert({
       color: "#f66359",
-      message: "All teams must have a name, lead and at least one member"
+      message: "All teams must have a name, lead and at least one member",
     });
-  }
+  };
 
   return (
     <StyledMakeTeam>
-      <form onSubmit={(e) => handleSetTeam(e)}>
+      <form onSubmit={(e) => handleSetTeam(e)} id="init-form">
+        <h4>Step 1: Pick name and Team Lead</h4>
         <input type="text" placeholder="team name" ref={teamNameRef} />
+        <label htmlFor="employees">Select Lead</label>
         <select
           name="employees"
           id="employees"
           onChange={(e) => setLead(e.target.value)}
         >
           {staff.map((employee) => {
-            return <option key={employee.id} value={employee.name}>{employee.name}</option>;
+            return (
+              <option key={employee.id} value={employee.name}>
+                {employee.name}
+              </option>
+            );
           })}
         </select>
-        <button type="submit">Create Team</button>
+        <Button message="Create Team" />
       </form>
 
       <form onSubmit={(e) => handleAddToTeam(e)}>
         {lead && <p>Team Lead:{lead}</p>}
         {teamList.map((element) => {
-          return <p>{element}</p>
+          return <p key={element}>{element}</p>;
         })}
+        <h4>Step 2: Select Employees for team</h4>
         <select
           name="employees"
           id="employees"
           onChange={(e) => handleSelectEmployee(e)}
         >
           {staff.map((employee) => {
-            return <option key={employee.id} value={employee.name}>{employee.name}</option>;
+            return (
+              <option key={employee.id} value={employee.name}>
+                {employee.name}
+              </option>
+            );
           })}
         </select>
-        <button type="submit">add to team</button>
+        <Button message="add to team" />
       </form>
     </StyledMakeTeam>
   );

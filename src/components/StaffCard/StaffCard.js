@@ -4,6 +4,7 @@ import CustomInput from "../Input/CustomInput";
 import SkillBadge from "../SkillBadge/SkillBadge";
 import { updateSKill, deleteEmployee } from "../../utilities/db-helpers";
 import AlertContext from "../../Context/AlertContext";
+import { ImCross } from 'react-icons/im';
 
 import StyledStaffCard from "./styledStaffCard";
 
@@ -62,7 +63,7 @@ const StaffCard = ({ employee }) => {
           <p> - {title}</p>
         </div>
         <button className="delete-button" onClick={confirmDeleteEmployee}>
-          delete
+          <ImCross />
         </button>
       </div>
       <div className="employee-info">

@@ -30,11 +30,11 @@ const FlagButton = ({ flag, setFlag, userId }) => {
   if (!flag) {
     return (
       <StyledFlagButton>
-        <button onClick={() => handleAddFlag("green", userId)}>
-          <FaFlag color="green" fontSize="28px" />
+        <button className="green-button" onClick={() => handleAddFlag("green", userId)}>
+          <FaFlag  fontSize="28px" />
         </button>
-        <button onClick={() => handleAddFlag("red", userId)}>
-          <FaFlag color="red" fontSize="28px" />
+        <button className="red-button" onClick={() => handleAddFlag("red", userId)}>
+          <FaFlag   fontSize="28px" />
         </button>
       </StyledFlagButton>
     );
