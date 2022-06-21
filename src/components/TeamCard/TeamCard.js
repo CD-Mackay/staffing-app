@@ -1,12 +1,21 @@
 import React from "react";
 
 import Button from "../../Button/Button";
-import { deleteTeam } from "../../utilities/db-helpers";
+import { deleteTeam, updateTeam } from "../../utilities/db-helpers";
 
 import StyledTeamCard from "./StyledTeamCard";
 
 const TeamCard = ({ name, lead, team, id }) => {
-  console.log(id);
+  const handleRemoveFromTeam = (name) => {
+    let teamListing = [...team];
+    teamListing = teamListing.filter((employee) => {
+      return employee !== name;
+    });
+
+    console.log(teamListing);
+    updateTeam(id, teamListing)
+  };
+
   const Listing = ({ name }) => {
     return (
       <li>
@@ -14,7 +23,10 @@ const TeamCard = ({ name, lead, team, id }) => {
           <p>{name}</p>
           <div>
             <Button message="view employee" />
-            <Button message="remove from team" />
+            <Button
+              handler={() => handleRemoveFromTeam(name)}
+              message="remove from team"
+            />
           </div>
         </div>
       </li>

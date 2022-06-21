@@ -76,7 +76,19 @@ export async function deleteTeam(teamId) {
   const data = await response.json();
   console.log(data);
   return data;
-}
+};
+
+// export async function removeFromTeam(teamId, employeeId) {
+//   const response = await fetch(`https://staffing-app-8610f-default-rtdb.firebaseio.com/teams/${teamId}.json`, {
+//     method: 'DELETE',
+//     headers: {'Content-Type': 'application/json'},
+//     body: JSON.stringify(teamId)
+//   });
+// 
+//   const data = await response.json();
+//   console.log(data);
+//   return data;
+// } Refactor Teamcreation to include ids of employees in team 
 
 export async function addFlag(flag, userId) {
   const response = await fetch(`https://staffing-app-8610f-default-rtdb.firebaseio.com/staff/${userId}.json`, {
@@ -99,5 +111,18 @@ export async function updateSKill( userId, skills) {
   console.log(data);
   return data;
 };
+
+export async function updateTeam(teamId, teamList) {
+  const response = await fetch(`https://staffing-app-8610f-default-rtdb.firebaseio.com/teams/${teamId}.json`, {
+    method: 'PATCH',
+    headers:  {'Content-Type': 'application/json'},
+    body: JSON.stringify({"team": teamList})
+  })
+  const data = await response.json();
+  console.log(data);
+  return data;
+}
+
+
 
 
