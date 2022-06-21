@@ -64,6 +64,18 @@ export async function deleteEmployee(userId) {
   const data = await response.json();
   console.log(data);
   return data;
+};
+
+export async function deleteTeam(teamId) {
+  const response = await fetch(`https://staffing-app-8610f-default-rtdb.firebaseio.com/teams/${teamId}.json`, {
+    method: 'DELETE',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(teamId)
+  });
+
+  const data = await response.json();
+  console.log(data);
+  return data;
 }
 
 export async function addFlag(flag, userId) {

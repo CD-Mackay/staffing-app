@@ -1,10 +1,12 @@
 import React from "react";
 
 import Button from "../../Button/Button";
+import { deleteTeam } from "../../utilities/db-helpers";
 
 import StyledTeamCard from "./StyledTeamCard";
 
-const TeamCard = ({ name, lead, team }) => {
+const TeamCard = ({ name, lead, team, id }) => {
+  console.log(id);
   const Listing = ({ name }) => {
     return (
       <li>
@@ -18,13 +20,14 @@ const TeamCard = ({ name, lead, team }) => {
       </li>
     );
   };
+
   return (
     <StyledTeamCard>
       <div className="team-header">
         <h5>
           {name} -- Team Lead: {lead}
         </h5>
-        <Button message="delete team" />
+        <Button handler={() => deleteTeam(id)} message="delete team" />
       </div>
       <ul>
         {team &&
