@@ -29,10 +29,10 @@ const MakeTeam = ({ staff }) => {
     const newLead = filterById(staff, id).pop();
     const leadObject = {
       name: newLead.name,
-      id: newLead.id
+      id: newLead.id,
     };
     setLead(leadObject);
-  }
+  };
 
   const handleSelectEmployee = (event) => {
     const id = event.target.value;

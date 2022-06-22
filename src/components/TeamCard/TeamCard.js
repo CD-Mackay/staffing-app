@@ -4,15 +4,12 @@ import Button from "../../Button/Button";
 import { deleteTeam, updateTeam } from "../../utilities/db-helpers";
 import AlertContext from "../../Context/AlertContext";
 
-
 import StyledTeamCard from "./StyledTeamCard";
 
 const TeamCard = ({ name, lead, team, id }) => {
-
   const [teamState, setTeamState] = useState(team);
   const alertObject = useContext(AlertContext);
   const { setAlert } = alertObject;
-
 
   const handleRemoveFromTeam = (employeeId, employeeName) => {
     let teamListing = [...team];
@@ -26,13 +23,10 @@ const TeamCard = ({ name, lead, team, id }) => {
       color: "#f66359",
       message: `${employeeName} has been removed from ${name}`,
       timer: true,
-    })
+    });
   };
 
-  useEffect(() => {
-
-  }, [teamState]);
-
+  useEffect(() => {}, [teamState]);
 
   const Listing = ({ name, id }) => {
     return (
@@ -62,7 +56,9 @@ const TeamCard = ({ name, lead, team, id }) => {
       <ul>
         {team &&
           teamState.map((element) => {
-            return <Listing key={element.id} id={element.id} name={element.name} />;
+            return (
+              <Listing key={element.id} id={element.id} name={element.name} />
+            );
           })}
         {!team && <li>No members in this team</li>}
       </ul>
