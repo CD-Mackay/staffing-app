@@ -1,19 +1,28 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import Button from "../../Button/Button";
 import { deleteTeam, updateTeam } from "../../utilities/db-helpers";
+import AlertContext from "../../Context/AlertContext";
+
 
 import StyledTeamCard from "./StyledTeamCard";
 
 const TeamCard = ({ name, lead, team, id }) => {
-  const handleRemoveFromTeam = (employeeId) => {
+  const alertObject = useContext(AlertContext);
+  const { setAlert } = alertObject;
+
+  const handleRemoveFromTeam = (employeeId, employeeName) => {
     let teamListing = [...team];
     teamListing = teamListing.filter((employee) => {
       return employee.id !== employeeId;
     });
 
-    console.log(teamListing, id);
-    updateTeam(id, teamListing)
+    updateTeam(id, teamListing);
+    setAlert({
+      color: "#f66359",
+      message: `${employeeName} has been removed from ${name}`,
+      timer: true,
+    })
   };
 
   const Listing = ({ name, id }) => {
@@ -24,7 +33,7 @@ const TeamCard = ({ name, lead, team, id }) => {
           <div>
             <Button message="view employee" />
             <Button
-              handler={() => handleRemoveFromTeam(id)}
+              handler={() => handleRemoveFromTeam(id, name)}
               message="remove from team"
             />
           </div>
