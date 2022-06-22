@@ -25,3 +25,9 @@ export const filterBySkills = (array, parameter) => {
     }
   });
 };
+
+export const filterById = (array, parameter) => {
+  return array.filter((employee) => {
+    return employee.id === parameter;
+  });
+};

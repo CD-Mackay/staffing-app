@@ -1,22 +1,34 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 import Button from "../../Button/Button";
 import { deleteTeam, updateTeam } from "../../utilities/db-helpers";
+import AlertContext from "../../Context/AlertContext";
 
 import StyledTeamCard from "./StyledTeamCard";
 
 const TeamCard = ({ name, lead, team, id }) => {
-  const handleRemoveFromTeam = (name) => {
+  const [teamState, setTeamState] = useState(team);
+  const alertObject = useContext(AlertContext);
+  const { setAlert } = alertObject;
+
+  const handleRemoveFromTeam = (employeeId, employeeName) => {
     let teamListing = [...team];
     teamListing = teamListing.filter((employee) => {
-      return employee !== name;
+      return employee.id !== employeeId;
     });
 
-    console.log(teamListing);
-    updateTeam(id, teamListing)
+    updateTeam(id, teamListing);
+    setTeamState(teamListing);
+    setAlert({
+      color: "#f66359",
+      message: `${employeeName} has been removed from ${name}`,
+      timer: true,
+    });
   };
 
-  const Listing = ({ name }) => {
+  useEffect(() => {}, [teamState]);
+
+  const Listing = ({ name, id }) => {
     return (
       <li>
         <div className="employee-listing">
@@ -24,7 +36,7 @@ const TeamCard = ({ name, lead, team, id }) => {
           <div>
             <Button message="view employee" />
             <Button
-              handler={() => handleRemoveFromTeam(name)}
+              handler={() => handleRemoveFromTeam(id, name)}
               message="remove from team"
             />
           </div>
@@ -37,14 +49,16 @@ const TeamCard = ({ name, lead, team, id }) => {
     <StyledTeamCard>
       <div className="team-header">
         <h5>
-          {name} -- Team Lead: {lead}
+          {name} -- Team Lead: {lead.name}
         </h5>
         <Button handler={() => deleteTeam(id)} message="delete team" />
       </div>
       <ul>
         {team &&
-          team.map((element) => {
-            return <Listing key={element} name={element} />;
+          teamState.map((element) => {
+            return (
+              <Listing key={element.id} id={element.id} name={element.name} />
+            );
           })}
         {!team && <li>No members in this team</li>}
       </ul>

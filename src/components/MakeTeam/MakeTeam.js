@@ -1,17 +1,17 @@
-import React, { useState, useRef, useContext } from "react";
+import React, { useState, useRef, useContext, useEffect } from "react";
 
 import { addTeam } from "../../utilities/db-helpers";
 import AlertContext from "../../Context/AlertContext";
 import Button from "../../Button/Button";
+import { filterById } from "../../utilities/helpers";
 
 import StyledMakeTeam from "./StyledMakeTeam";
 
-const MakeTeam = ({ staff }) => {
+const MakeTeam = ({ staff, setTeams, teams }) => {
   const [teamList, setTeamList] = useState([]);
   const [selected, setSelected] = useState("");
   const [lead, setLead] = useState("");
   const teamNameRef = useRef();
-
   const alertObject = useContext(AlertContext);
   const { setAlert } = alertObject;
 
@@ -22,8 +22,26 @@ const MakeTeam = ({ staff }) => {
     setTeamList(teamCopy);
   };
 
+  const handlePickLead = (event) => {
+    event.preventDefault();
+    const id = event.target.value;
+    const newLead = filterById(staff, id).pop();
+    const leadObject = {
+      name: newLead.name,
+      id: newLead.id,
+    };
+    setLead(leadObject);
+  };
+
   const handleSelectEmployee = (event) => {
-    setSelected(event.target.value);
+    const id = event.target.value;
+    const newAdd = filterById(staff, id).pop();
+    console.log(newAdd);
+    const employeeObject = {
+      name: newAdd.name,
+      id: newAdd.id,
+    };
+    setSelected(employeeObject);
   };
 
   const handleSetTeam = (e) => {
@@ -37,6 +55,9 @@ const MakeTeam = ({ staff }) => {
       };
 
       addTeam(teamObject);
+      let teamsCopy = [...teams];
+      teamsCopy.push(teamObject);
+      setTeams(teamsCopy);
       return;
     }
     setAlert({
@@ -54,11 +75,11 @@ const MakeTeam = ({ staff }) => {
         <select
           name="employees"
           id="employees"
-          onChange={(e) => setLead(e.target.value)}
+          onChange={(e) => handlePickLead(e)}
         >
           {staff.map((employee) => {
             return (
-              <option key={employee.id} value={employee.name}>
+              <option key={employee.id} value={employee.id}>
                 {employee.name}
               </option>
             );
@@ -68,9 +89,9 @@ const MakeTeam = ({ staff }) => {
       </form>
 
       <form onSubmit={(e) => handleAddToTeam(e)}>
-        {lead && <p>Team Lead:{lead}</p>}
+        {lead && <p>Team Lead:{lead.name}</p>}
         {teamList.map((element) => {
-          return <p key={element}>{element}</p>;
+          return <p key={element.id}>{element.name}</p>;
         })}
         <h4>Step 2: Select Employees for team</h4>
         <select
@@ -80,7 +101,7 @@ const MakeTeam = ({ staff }) => {
         >
           {staff.map((employee) => {
             return (
-              <option key={employee.id} value={employee.name}>
+              <option key={employee.id} value={employee.id}>
                 {employee.name}
               </option>
             );
