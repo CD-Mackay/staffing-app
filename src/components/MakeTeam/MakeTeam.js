@@ -25,6 +25,13 @@ const MakeTeam = ({ staff }) => {
 
   const handlePickLead = (event) => {
     event.preventDefault();
+    const id = event.target.value;
+    const newLead = filterById(staff, id).pop();
+    const leadObject = {
+      name: newLead.name,
+      id: newLead.id
+    };
+    setLead(leadObject);
   }
 
   const handleSelectEmployee = (event) => {
@@ -66,7 +73,7 @@ const MakeTeam = ({ staff }) => {
         <select
           name="employees"
           id="employees"
-          onChange={(e) => setLead(filterById(staff, e.target.value).pop())}
+          onChange={(e) => handlePickLead(e)}
         >
           {staff.map((employee) => {
             return (
