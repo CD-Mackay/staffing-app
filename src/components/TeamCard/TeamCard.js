@@ -37,14 +37,14 @@ const TeamCard = ({ name, lead, team, id }) => {
     <StyledTeamCard>
       <div className="team-header">
         <h5>
-          {name} -- Team Lead: {lead}
+          {name} -- Team Lead: {lead.name}
         </h5>
         <Button handler={() => deleteTeam(id)} message="delete team" />
       </div>
       <ul>
         {team &&
           team.map((element) => {
-            return <Listing key={element} name={element} />;
+            return <Listing key={element.id} name={element.name} />;
           })}
         {!team && <li>No members in this team</li>}
       </ul>
