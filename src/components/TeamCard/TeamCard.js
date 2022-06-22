@@ -6,17 +6,17 @@ import { deleteTeam, updateTeam } from "../../utilities/db-helpers";
 import StyledTeamCard from "./StyledTeamCard";
 
 const TeamCard = ({ name, lead, team, id }) => {
-  const handleRemoveFromTeam = (name) => {
+  const handleRemoveFromTeam = (employeeId) => {
     let teamListing = [...team];
     teamListing = teamListing.filter((employee) => {
-      return employee !== name;
+      return employee.id !== employeeId;
     });
 
-    console.log(teamListing);
+    console.log(teamListing, id);
     updateTeam(id, teamListing)
   };
 
-  const Listing = ({ name }) => {
+  const Listing = ({ name, id }) => {
     return (
       <li>
         <div className="employee-listing">
@@ -24,7 +24,7 @@ const TeamCard = ({ name, lead, team, id }) => {
           <div>
             <Button message="view employee" />
             <Button
-              handler={() => handleRemoveFromTeam(name)}
+              handler={() => handleRemoveFromTeam(id)}
               message="remove from team"
             />
           </div>
@@ -44,7 +44,7 @@ const TeamCard = ({ name, lead, team, id }) => {
       <ul>
         {team &&
           team.map((element) => {
-            return <Listing key={element.id} name={element.name} />;
+            return <Listing key={element.id} id={element.id} name={element.name} />;
           })}
         {!team && <li>No members in this team</li>}
       </ul>
