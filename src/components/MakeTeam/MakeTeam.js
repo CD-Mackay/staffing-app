@@ -3,6 +3,7 @@ import React, { useState, useRef, useContext } from "react";
 import { addTeam } from "../../utilities/db-helpers";
 import AlertContext from "../../Context/AlertContext";
 import Button from "../../Button/Button";
+import { filterById } from "../../utilities/helpers";
 
 import StyledMakeTeam from "./StyledMakeTeam";
 
@@ -22,8 +23,19 @@ const MakeTeam = ({ staff }) => {
     setTeamList(teamCopy);
   };
 
+  const handlePickLead = (event) => {
+    event.preventDefault();
+  }
+
   const handleSelectEmployee = (event) => {
-    setSelected(event.target.value);
+    const id = event.target.value;
+    const newAdd = filterById(staff, id).pop();
+    console.log(newAdd);
+    const employeeObject = {
+      name: newAdd.name,
+      id: newAdd.id,
+    };
+    setSelected(employeeObject);
   };
 
   const handleSetTeam = (e) => {
@@ -54,11 +66,11 @@ const MakeTeam = ({ staff }) => {
         <select
           name="employees"
           id="employees"
-          onChange={(e) => setLead(e.target.value)}
+          onChange={(e) => setLead(filterById(staff, e.target.value).pop())}
         >
           {staff.map((employee) => {
             return (
-              <option key={employee.id} value={employee.name}>
+              <option key={employee.id} value={employee.id}>
                 {employee.name}
               </option>
             );
@@ -68,9 +80,9 @@ const MakeTeam = ({ staff }) => {
       </form>
 
       <form onSubmit={(e) => handleAddToTeam(e)}>
-        {lead && <p>Team Lead:{lead}</p>}
+        {lead && <p>Team Lead:{lead.name}</p>}
         {teamList.map((element) => {
-          return <p key={element}>{element}</p>;
+          return <p key={element.id}>{element.name}</p>;
         })}
         <h4>Step 2: Select Employees for team</h4>
         <select
@@ -80,7 +92,7 @@ const MakeTeam = ({ staff }) => {
         >
           {staff.map((employee) => {
             return (
-              <option key={employee.id} value={employee.name}>
+              <option key={employee.id} value={employee.id}>
                 {employee.name}
               </option>
             );
