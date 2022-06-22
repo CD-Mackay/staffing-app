@@ -1,4 +1,4 @@
-import React, { useState, useRef, useContext } from "react";
+import React, { useState, useRef, useContext, useEffect } from "react";
 
 import { addTeam } from "../../utilities/db-helpers";
 import AlertContext from "../../Context/AlertContext";
@@ -7,12 +7,11 @@ import { filterById } from "../../utilities/helpers";
 
 import StyledMakeTeam from "./StyledMakeTeam";
 
-const MakeTeam = ({ staff }) => {
+const MakeTeam = ({ staff, setTeams, teams }) => {
   const [teamList, setTeamList] = useState([]);
   const [selected, setSelected] = useState("");
   const [lead, setLead] = useState("");
   const teamNameRef = useRef();
-
   const alertObject = useContext(AlertContext);
   const { setAlert } = alertObject;
 
@@ -56,6 +55,9 @@ const MakeTeam = ({ staff }) => {
       };
 
       addTeam(teamObject);
+      let teamsCopy = [...teams];
+      teamsCopy.push(teamObject);
+      setTeams(teamsCopy);
       return;
     }
     setAlert({

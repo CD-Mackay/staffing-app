@@ -5,16 +5,7 @@ import StyledTeamList from "./StyledTeamList";
 import { getAllTeams } from "../../utilities/db-helpers";
 import TeamCard from "../TeamCard/TeamCard";
 
-const TeamList = () => {
-  const [teams, setTeams] = useState([]);
-  const makeTeamList = async () => {
-    let result = await getAllTeams();
-    setTeams(result);
-  };
-
-  useEffect(() => {
-    makeTeamList();
-  }, []);
+const TeamList = ({ teams }) => {
 
   return (
     <StyledTeamList>
