@@ -40,9 +40,9 @@ const TeamCard = ({ name, lead, team, id }) => {
     setAlert({
       message: (
         <span>
-          This is permant, are you sure?{" "}
-          <button onClick={() => handleDeleteTeam(id)}>oui</button>
-          <button onClick={() => setAlert("")}>non</button>
+          This is permanent, are you sure?{" "}
+          <Button handler={() => handleDeleteTeam(id)} message="oui" />
+          <Button handler={() => setAlert("")} message="non" />
         </span>
       ),
       color: "#f66359",
