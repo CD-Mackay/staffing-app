@@ -133,7 +133,7 @@ export default function AddEmployeeForm() {
             <input type="text" placeholder="skill" ref={skillInputRef} />
             <button onClick={handleAddSkill}>Add</button>
           </div>
-          <button id="new-employee-button" type="submit">
+          <button id="new-employee-button" onClick={handleAddEmployee}>
             Add employee
           </button>
         </div>
