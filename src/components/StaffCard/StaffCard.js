@@ -72,11 +72,11 @@ const StaffCard = ({ employee }) => {
           {superior && <p>Reports to: {superior} </p>}
           <ul>
             {employeeSkills &&
-              employeeSkills.map((skill) => {
+              employeeSkills.map((skill, index) => {
                 return (
                   <SkillBadge
                     onDelete={handleRemoveSkill}
-                    key={skill}
+                    key={index}
                     skill={skill}
                   />
                 );

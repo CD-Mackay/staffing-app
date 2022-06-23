@@ -73,9 +73,9 @@ const TeamCard = ({ name, lead, team, id }) => {
       </div>
       <ul>
         {team &&
-          teamState.map((element) => {
+          teamState.map((element, index) => {
             return (
-              <Listing key={element.id} id={element.id} name={element.name} />
+              <Listing key={index} id={element.id} name={element.name} />
             );
           })}
         {!team && <li>No members in this team</li>}
