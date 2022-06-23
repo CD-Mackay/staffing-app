@@ -58,6 +58,14 @@ const MakeTeam = ({ staff, setTeams, teams }) => {
       let teamsCopy = [...teams];
       teamsCopy.push(teamObject);
       setTeams(teamsCopy);
+      teamNameRef.current.value = "";
+      setLead("");
+      setTeamList([]);
+      setAlert({
+        color: "green",
+        message: "team added",
+        timer: true
+      })
       return;
     }
     setAlert({

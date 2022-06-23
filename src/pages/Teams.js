@@ -4,6 +4,7 @@ import TeamList from "../components/TeamList/TeamList";
 import { getAllTeams } from "../utilities/db-helpers";
 
 export default function Teams({ staff }) {
+  console.log("page render!")
   const [teams, setTeams] = useState([]);
   const makeTeamList = async () => {
     let result = await getAllTeams();
@@ -12,7 +13,7 @@ export default function Teams({ staff }) {
 
   useEffect(() => {
     makeTeamList();
-  }, [teams]);
+  }, []);
   return (
     <div>
       <MakeTeam staff={staff} setTeams={setTeams} teams={teams} />
