@@ -47,7 +47,7 @@ function App() {
             />
             <Route path="/new" element={<NewEmployee />} />
             <Route path="/teams" element={<Teams staff={staff} />} />
-            <Route path="/single" element={<SingleEmployee staff={staff} />} />
+            <Route path={`/:employeeId`} element={<SingleEmployee staff={staff} />} />
           </Routes>
         </div>
       </div>
