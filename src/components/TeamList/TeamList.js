@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 import StyledTeamList from "./StyledTeamList";
 
-import { getAllTeams } from "../../utilities/db-helpers";
 import TeamCard from "../TeamCard/TeamCard";
 
 const TeamList = ({ teams }) => {

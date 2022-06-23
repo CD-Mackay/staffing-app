@@ -1,4 +1,4 @@
-import React, { useState, useRef, useContext, useEffect } from "react";
+import React, { useState, useRef, useContext } from "react";
 
 import { addTeam } from "../../utilities/db-helpers";
 import AlertContext from "../../Context/AlertContext";
@@ -64,8 +64,8 @@ const MakeTeam = ({ staff, setTeams, teams }) => {
       setAlert({
         color: "green",
         message: "team added",
-        timer: true
-      })
+        timer: true,
+      });
       return;
     }
     setAlert({
