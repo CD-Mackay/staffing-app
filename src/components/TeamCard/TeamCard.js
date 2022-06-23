@@ -26,6 +26,24 @@ const TeamCard = ({ name, lead, team, id }) => {
     });
   };
 
+  const handleDeleteTeam = (teamId) => {
+    deleteTeam(teamId);
+  };
+
+  const confirmDeleteTeam = () => {
+    setAlert({
+      message: (
+        <span>
+          This is permant, are you sure?{" "}
+          <button onClick={() => handleDeleteTeam(id)}>oui</button>
+          <button onClick={() => setAlert("")}>non</button>
+        </span>
+      ),
+      color: "#f66359",
+      timer: false,
+    });
+  };
+
   useEffect(() => {}, [teamState]);
 
   const Listing = ({ name, id }) => {
@@ -51,7 +69,7 @@ const TeamCard = ({ name, lead, team, id }) => {
         <h5>
           {name} -- Team Lead: {lead.name}
         </h5>
-        <Button handler={() => deleteTeam(id)} message="delete team" />
+        <Button handler={() => confirmDeleteTeam()} message="delete team" />
       </div>
       <ul>
         {team &&
