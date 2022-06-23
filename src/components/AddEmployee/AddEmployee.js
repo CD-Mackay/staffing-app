@@ -2,6 +2,7 @@ import React, { useContext, useRef, useState } from "react";
 
 import { AddEmployee } from "../../utilities/db-helpers";
 import SkillBadge from "../SkillBadge/SkillBadge";
+import Button from "../../Button/Button";
 
 import StyledAddEmployee from "./StyledAddEmployee";
 import AlertContext from "../../Context/AlertContext";
@@ -131,9 +132,9 @@ export default function AddEmployeeForm() {
                 })}
             </div>
             <input type="text" placeholder="skill" ref={skillInputRef} />
-            <button onClick={handleAddSkill}>Add</button>
+            <Button handler={handleAddSkill} message="Add" />
           </div>
-          <button id="new-employee-button" type="submit">
+          <button id="new-employee-button" onClick={handleAddEmployee}>
             Add employee
           </button>
         </div>

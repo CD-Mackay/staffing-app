@@ -4,6 +4,7 @@ import CustomInput from "../Input/CustomInput";
 import SkillBadge from "../SkillBadge/SkillBadge";
 import { updateSKill, deleteEmployee } from "../../utilities/db-helpers";
 import AlertContext from "../../Context/AlertContext";
+import Button from "../../Button/Button";
 import { ImCross } from 'react-icons/im';
 
 import StyledStaffCard from "./styledStaffCard";
@@ -36,8 +37,8 @@ const StaffCard = ({ employee }) => {
       message: (
         <span>
           This is permant, are you sure?{" "}
-          <button onClick={() => handleDeleteEmployee()}>oui</button>
-          <button onClick={() => setAlert("")}>non</button>
+          <Button handler={handleDeleteEmployee} message="oui" />
+          <Button handler={() => setAlert("")} message="non" />
         </span>
       ),
       color: "#f66359",
@@ -72,11 +73,11 @@ const StaffCard = ({ employee }) => {
           {superior && <p>Reports to: {superior} </p>}
           <ul>
             {employeeSkills &&
-              employeeSkills.map((skill) => {
+              employeeSkills.map((skill, index) => {
                 return (
                   <SkillBadge
                     onDelete={handleRemoveSkill}
-                    key={skill}
+                    key={index}
                     skill={skill}
                   />
                 );

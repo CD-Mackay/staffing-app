@@ -10,6 +10,7 @@ import Header from "./components/Header/Header";
 import Home from "./pages/Home";
 import NewEmployee from "./pages/NewEmployee";
 import Teams from "./pages/Teams";
+import SingleEmployee from "./pages/SingleEmployee";
 
 function App() {
   const [searchValue, setSearchValue] = useState("");
@@ -45,6 +46,10 @@ function App() {
             />
             <Route path="/new" element={<NewEmployee />} />
             <Route path="/teams" element={<Teams staff={staff} />} />
+            <Route
+              path={`/:employeeId`}
+              element={<SingleEmployee staff={staff} />}
+            />
           </Routes>
         </div>
       </div>
