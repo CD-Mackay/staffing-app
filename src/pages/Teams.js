@@ -4,7 +4,7 @@ import TeamList from "../components/TeamList/TeamList";
 import { getAllTeams } from "../utilities/db-helpers";
 
 export default function Teams({ staff }) {
-  console.log("page render!")
+  console.log("page render!");
   const [teams, setTeams] = useState([]);
   const makeTeamList = async () => {
     let result = await getAllTeams();

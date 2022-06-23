@@ -5,7 +5,6 @@ import StyledTeamList from "./StyledTeamList";
 import TeamCard from "../TeamCard/TeamCard";
 
 const TeamList = ({ teams }) => {
-
   return (
     <StyledTeamList>
       {teams &&

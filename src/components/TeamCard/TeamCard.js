@@ -34,7 +34,7 @@ const TeamCard = ({ name, lead, team, id }) => {
 
   const handleViewEmployee = (id) => {
     navigate(`/${id}`);
-  }
+  };
 
   const confirmDeleteTeam = () => {
     setAlert({
@@ -58,7 +58,10 @@ const TeamCard = ({ name, lead, team, id }) => {
         <div className="employee-listing">
           <p>{name}</p>
           <div>
-            <Button message="view employee" handler={() => handleViewEmployee(id)}/>
+            <Button
+              message="view employee"
+              handler={() => handleViewEmployee(id)}
+            />
             <Button
               handler={() => handleRemoveFromTeam(id, name)}
               message="remove from team"
@@ -80,9 +83,7 @@ const TeamCard = ({ name, lead, team, id }) => {
       <ul>
         {team &&
           teamState.map((element, index) => {
-            return (
-              <Listing key={index} id={element.id} name={element.name} />
-            );
+            return <Listing key={index} id={element.id} name={element.name} />;
           })}
         {!team && <li>No members in this team</li>}
       </ul>
