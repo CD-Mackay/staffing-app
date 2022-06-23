@@ -5,8 +5,10 @@ import { deleteTeam, updateTeam } from "../../utilities/db-helpers";
 import AlertContext from "../../Context/AlertContext";
 
 import StyledTeamCard from "./StyledTeamCard";
+import { useNavigate } from "react-router-dom";
 
 const TeamCard = ({ name, lead, team, id }) => {
+  const navigate = useNavigate();
   const [teamState, setTeamState] = useState(team);
   const alertObject = useContext(AlertContext);
   const { setAlert } = alertObject;
@@ -30,6 +32,10 @@ const TeamCard = ({ name, lead, team, id }) => {
     deleteTeam(teamId);
   };
 
+  const handleViewEmployee = (id) => {
+    navigate(`/${id}`);
+  }
+
   const confirmDeleteTeam = () => {
     setAlert({
       message: (
@@ -52,7 +58,7 @@ const TeamCard = ({ name, lead, team, id }) => {
         <div className="employee-listing">
           <p>{name}</p>
           <div>
-            <Button message="view employee" />
+            <Button message="view employee" handler={() => handleViewEmployee(id)}/>
             <Button
               handler={() => handleRemoveFromTeam(id, name)}
               message="remove from team"
