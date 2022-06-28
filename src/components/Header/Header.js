@@ -12,10 +12,12 @@ const Header = () => {
 
   return (
     <StyledHeader>
-      <div className="logo">
-        <BsPersonSquare fontSize="42px" color="pink" />
-        <h4>Staffify</h4>
-      </div>
+      <Link id="logo-link" to="/">
+        <div className="logo">
+          <BsPersonSquare fontSize="42px" color="pink" />
+          <h4>Staffify</h4>
+        </div>
+      </Link>
       <Alert />
       <div className="nav">
         {path !== "/new" && (
