@@ -7,10 +7,9 @@ import StyledFlagButton from "./StyledFlagButton";
 
 const FlagButton = ({ flag, setFlag, userId }) => {
   const handleRemoveFlag = (id) => {
-    addFlag("null", id)
+    addFlag("null", id);
     setFlag(false);
   };
-
 
   const handleAddFlag = (input, id) => {
     addFlag(input, id);
@@ -23,7 +22,10 @@ const FlagButton = ({ flag, setFlag, userId }) => {
         {/* <button onClick={() => handleRemoveFlag(userId)}>
           Remove Flag
         </button> */}
-        <Button handler={() => handleRemoveFlag(userId)} message="remove flag" />
+        <Button
+          handler={() => handleRemoveFlag(userId)}
+          message="remove flag"
+        />
       </StyledFlagButton>
     );
   }
@@ -31,11 +33,17 @@ const FlagButton = ({ flag, setFlag, userId }) => {
   if (!flag) {
     return (
       <StyledFlagButton>
-        <button className="green-button" onClick={() => handleAddFlag("green", userId)}>
-          <FaFlag  fontSize="28px" />
+        <button
+          className="green-button"
+          onClick={() => handleAddFlag("green", userId)}
+        >
+          <FaFlag fontSize="28px" />
         </button>
-        <button className="red-button" onClick={() => handleAddFlag("red", userId)}>
-          <FaFlag   fontSize="28px" />
+        <button
+          className="red-button"
+          onClick={() => handleAddFlag("red", userId)}
+        >
+          <FaFlag fontSize="28px" />
         </button>
       </StyledFlagButton>
     );

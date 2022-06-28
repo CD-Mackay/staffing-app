@@ -25,7 +25,14 @@ background-color: white;
     margin: 2px;
     border: 1px solid gray;
     border-radius: 10px;
+    color: black;
+    text-decoration: none;
   }
+}
+
+#logo-link {
+  text-decoration: none;
+  color: black;
 }
 `;
 

@@ -5,7 +5,7 @@ import SkillBadge from "../SkillBadge/SkillBadge";
 import { updateSKill, deleteEmployee } from "../../utilities/db-helpers";
 import AlertContext from "../../Context/AlertContext";
 import Button from "../../Button/Button";
-import { ImCross } from 'react-icons/im';
+import { ImCross } from "react-icons/im";
 
 import StyledStaffCard from "./styledStaffCard";
 
