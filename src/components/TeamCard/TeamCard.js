@@ -3,15 +3,18 @@ import React, { useContext, useEffect, useState } from "react";
 import Button from "../../Button/Button";
 import { deleteTeam, updateTeam } from "../../utilities/db-helpers";
 import AlertContext from "../../Context/AlertContext";
+import { dateCountDown } from "../../utilities/helpers";
 
 import StyledTeamCard from "./StyledTeamCard";
 import { useNavigate } from "react-router-dom";
 
-const TeamCard = ({ name, lead, team, id }) => {
+const TeamCard = ({ name, lead, team, id, deadline }) => {
   const navigate = useNavigate();
   const [teamState, setTeamState] = useState(team);
   const alertObject = useContext(AlertContext);
   const { setAlert } = alertObject;
+
+  const timeTillDeadline = dateCountDown(deadline);
 
   const handleRemoveFromTeam = (employeeId, employeeName) => {
     let teamListing = [...team];
@@ -22,14 +25,19 @@ const TeamCard = ({ name, lead, team, id }) => {
     updateTeam(id, teamListing);
     setTeamState(teamListing);
     setAlert({
-      color: "#f66359",
+      color: "green",
       message: `${employeeName} has been removed from ${name}`,
       timer: true,
     });
   };
 
-  const handleDeleteTeam = (teamId) => {
+  const handleDeleteTeam = (teamId, name) => {
     deleteTeam(teamId);
+    setAlert({
+      color: "green",
+      message: `${name} has been deleted`,
+      timer: true,
+    });
   };
 
   const handleViewEmployee = (id) => {
@@ -41,7 +49,7 @@ const TeamCard = ({ name, lead, team, id }) => {
       message: (
         <span>
           This is permanent, are you sure?{" "}
-          <Button handler={() => handleDeleteTeam(id)} message="oui" />
+          <Button handler={() => handleDeleteTeam(id, name)} message="oui" />
           <Button handler={() => setAlert("")} message="non" />
         </span>
       ),
@@ -73,14 +81,21 @@ const TeamCard = ({ name, lead, team, id }) => {
   };
 
   return (
-    <StyledTeamCard>
+    <StyledTeamCard remaining={timeTillDeadline.weeks}>
       <div className="team-header">
         <h5>
           {name} -- Team Lead: {lead.name}
         </h5>
         <Button handler={() => confirmDeleteTeam()} message="delete team" />
       </div>
+      <div className="time">
+        <time>Deadline: {deadline} </time>
+        <time>
+          Due in: {timeTillDeadline.weeks}weeks and {timeTillDeadline.days}days
+        </time>
+      </div>
       <ul>
+        {" "}
         {team &&
           teamState.map((element, index) => {
             return <Listing key={index} id={element.id} name={element.name} />;
