@@ -74,7 +74,7 @@ const MakeTeam = ({ staff, setTeams, teams }) => {
     }
     setAlert({
       color: "#f66359",
-      message: "All teams must have a name, lead and at least one member",
+      message: "All fields are required",
     });
   };
 
