@@ -38,7 +38,7 @@ const TeamCard = ({ name, lead, team, id, deadline }) => {
       color: "green",
       message: `${name} has been deleted`,
       timer: true,
-    })
+    });
   };
 
   const handleViewEmployee = (id) => {
@@ -89,7 +89,9 @@ const TeamCard = ({ name, lead, team, id, deadline }) => {
         </h5>
         <Button handler={() => confirmDeleteTeam()} message="delete team" />
       </div>
+      <time>Deadline: {deadline}</time>
       <ul>
+          {" "}
         {team &&
           teamState.map((element, index) => {
             return <Listing key={index} id={element.id} name={element.name} />;
