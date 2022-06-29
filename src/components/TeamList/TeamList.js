@@ -16,6 +16,7 @@ const TeamList = ({ teams }) => {
               lead={team.lead}
               id={team.id}
               team={team.team}
+              deadline={team.deadLine}
             />
           );
         })}

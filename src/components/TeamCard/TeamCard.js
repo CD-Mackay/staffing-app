@@ -3,15 +3,19 @@ import React, { useContext, useEffect, useState } from "react";
 import Button from "../../Button/Button";
 import { deleteTeam, updateTeam } from "../../utilities/db-helpers";
 import AlertContext from "../../Context/AlertContext";
+import { dateCountDown } from "../../utilities/helpers";
 
 import StyledTeamCard from "./StyledTeamCard";
 import { useNavigate } from "react-router-dom";
 
-const TeamCard = ({ name, lead, team, id }) => {
+const TeamCard = ({ name, lead, team, id, deadline }) => {
   const navigate = useNavigate();
   const [teamState, setTeamState] = useState(team);
   const alertObject = useContext(AlertContext);
   const { setAlert } = alertObject;
+
+  dateCountDown(deadline);
+  // console.log(deadline);
 
   const handleRemoveFromTeam = (employeeId, employeeName) => {
     let teamListing = [...team];

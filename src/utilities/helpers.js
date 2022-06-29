@@ -31,3 +31,8 @@ export const filterById = (array, parameter) => {
     return employee.id === parameter;
   });
 };
+
+export const dateCountDown = (deadline) => {
+  const current = Date.now();
+  console.log(current);
+};
