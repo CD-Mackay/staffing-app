@@ -75,6 +75,7 @@ const MakeTeam = ({ staff, setTeams, teams }) => {
     setAlert({
       color: "#f66359",
       message: "All fields are required",
+      timer: true
     });
   };
 
