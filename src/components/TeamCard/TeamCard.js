@@ -14,8 +14,7 @@ const TeamCard = ({ name, lead, team, id, deadline }) => {
   const alertObject = useContext(AlertContext);
   const { setAlert } = alertObject;
 
-  dateCountDown(deadline);
-  // console.log(deadline);
+  const timeTillDeadline = dateCountDown(deadline);
 
   const handleRemoveFromTeam = (employeeId, employeeName) => {
     let teamListing = [...team];
@@ -89,7 +88,8 @@ const TeamCard = ({ name, lead, team, id, deadline }) => {
         </h5>
         <Button handler={() => confirmDeleteTeam()} message="delete team" />
       </div>
-      <time>Deadline: {deadline}</time>
+      <time>Deadline: {deadline}  </time>
+      <time>Due in: {timeTillDeadline.weeks}weeks and {timeTillDeadline.days}days </time>
       <ul>
           {" "}
         {team &&
