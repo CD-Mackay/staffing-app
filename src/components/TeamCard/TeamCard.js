@@ -22,14 +22,19 @@ const TeamCard = ({ name, lead, team, id }) => {
     updateTeam(id, teamListing);
     setTeamState(teamListing);
     setAlert({
-      color: "#f66359",
+      color: "green",
       message: `${employeeName} has been removed from ${name}`,
       timer: true,
     });
   };
 
-  const handleDeleteTeam = (teamId) => {
+  const handleDeleteTeam = (teamId, name) => {
     deleteTeam(teamId);
+    setAlert({
+      color: "green",
+      message: `${name} has been deleted`,
+      timer: true,
+    })
   };
 
   const handleViewEmployee = (id) => {
@@ -41,7 +46,7 @@ const TeamCard = ({ name, lead, team, id }) => {
       message: (
         <span>
           This is permanent, are you sure?{" "}
-          <Button handler={() => handleDeleteTeam(id)} message="oui" />
+          <Button handler={() => handleDeleteTeam(id, name)} message="oui" />
           <Button handler={() => setAlert("")} message="non" />
         </span>
       ),
