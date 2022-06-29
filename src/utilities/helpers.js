@@ -40,11 +40,10 @@ export const dateCountDown = (deadline) => {
   let weeks = minutes / 10080;
   console.log(weeks);
   let days = (minutes % 10080) / 1440;
-  console.log(weeks, days);
   days = Math.floor(days);
   weeks = Math.floor(weeks);
   return {
     weeks,
-    days
+    days,
   }
 };
