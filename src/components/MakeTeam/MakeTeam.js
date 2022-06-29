@@ -12,6 +12,7 @@ const MakeTeam = ({ staff, setTeams, teams }) => {
   const [selected, setSelected] = useState("");
   const [lead, setLead] = useState("");
   const teamNameRef = useRef();
+  const dateRef = useRef();
   const alertObject = useContext(AlertContext);
   const { setAlert } = alertObject;
 
@@ -44,14 +45,17 @@ const MakeTeam = ({ staff, setTeams, teams }) => {
     setSelected(employeeObject);
   };
 
+
   const handleSetTeam = (e) => {
     e.preventDefault();
     const teamName = teamNameRef.current.value;
-    if (lead !== "" && teamName !== "" && teamList !== []) {
+    const deadLine = dateRef.current.value;
+    if (lead !== "" && teamName !== "" && teamList !== [] && deadLine) {
       let teamObject = {
         lead,
         teamName,
         team: teamList,
+        deadLine,
       };
 
       addTeam(teamObject);
@@ -94,6 +98,11 @@ const MakeTeam = ({ staff, setTeams, teams }) => {
           })}
         </select>
         <Button message="Create Team" />
+        <div>
+          <h4>Step 2: Add Deadline</h4>
+          <label htmlFor="date" style={{"display": "none"}}>Add Deadline</label>
+          <input type="date" ref={dateRef} />
+        </div>
       </form>
 
       <form onSubmit={(e) => handleAddToTeam(e)}>
@@ -101,7 +110,7 @@ const MakeTeam = ({ staff, setTeams, teams }) => {
         {teamList.map((element) => {
           return <p key={element.id}>{element.name}</p>;
         })}
-        <h4>Step 2: Select Employees for team</h4>
+        <h4>Step 3: Select Employees for team</h4>
         <select
           name="employees"
           id="employees"
