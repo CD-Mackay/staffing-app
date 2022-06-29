@@ -5,6 +5,7 @@ border: 1px solid black;
 border-radius: 5px;
 margin: 5px;
 padding: 5px;
+background-color: ${props => props.remaining < 1 ? "#f66359": "none"};
 ul {
   list-style-type: none;
 }

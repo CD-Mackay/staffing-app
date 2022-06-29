@@ -81,7 +81,7 @@ const TeamCard = ({ name, lead, team, id, deadline }) => {
   };
 
   return (
-    <StyledTeamCard>
+    <StyledTeamCard remaining={timeTillDeadline.weeks}>
       <div className="team-header">
         <h5>
           {name} -- Team Lead: {lead.name}
@@ -91,7 +91,7 @@ const TeamCard = ({ name, lead, team, id, deadline }) => {
       <div className="time">
         <time>Deadline: {deadline} </time>
         <time>
-          Due in: {timeTillDeadline.weeks}weeks and {timeTillDeadline.days}days{" "}
+          Due in: {timeTillDeadline.weeks}weeks and {timeTillDeadline.days}days
         </time>
       </div>
       <ul>
