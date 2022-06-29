@@ -88,10 +88,14 @@ const TeamCard = ({ name, lead, team, id, deadline }) => {
         </h5>
         <Button handler={() => confirmDeleteTeam()} message="delete team" />
       </div>
-      <time>Deadline: {deadline}  </time>
-      <time>Due in: {timeTillDeadline.weeks}weeks and {timeTillDeadline.days}days </time>
+      <div className="time">
+        <time>Deadline: {deadline} </time>
+        <time>
+          Due in: {timeTillDeadline.weeks}weeks and {timeTillDeadline.days}days{" "}
+        </time>
+      </div>
       <ul>
-          {" "}
+        {" "}
         {team &&
           teamState.map((element, index) => {
             return <Listing key={index} id={element.id} name={element.name} />;

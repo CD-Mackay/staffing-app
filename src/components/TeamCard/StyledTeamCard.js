@@ -27,6 +27,11 @@ ul {
     }
   }
 }
+
+.time {
+  display: flex;
+  flex-direction: column;
+}
 `;
 
 export default StyledTeamCard;
