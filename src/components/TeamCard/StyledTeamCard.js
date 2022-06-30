@@ -3,8 +3,8 @@ import styled from "styled-components";
 const StyledTeamCard = styled.div`
   background-color: ${(props) => (props.remaining < 1 ? "#f66359" : "none")};
   border: 1px solid black;
-  border-radius: 5px;
-  margin: 5px;
+  border-radius: 15px;
+  margin: 10px;
   padding: 5px;
   ul {
     list-style-type: none;
