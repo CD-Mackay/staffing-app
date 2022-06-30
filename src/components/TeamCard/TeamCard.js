@@ -89,10 +89,16 @@ const TeamCard = ({ name, lead, team, id, deadline }) => {
         <Button handler={() => confirmDeleteTeam()} message="delete team" />
       </div>
       <div className="time">
-        <time>Deadline: {deadline} </time>
-        <time>
-          Due in: {timeTillDeadline.weeks}weeks and {timeTillDeadline.days}days
-        </time>
+        <span>
+          Deadline: <time>{deadline}</time>
+        </span>
+        <span>
+          Due in:{" "}
+          <time>
+            {timeTillDeadline.weeks} weeks and 
+            {" "} {timeTillDeadline.days}days
+          </time>{" "}
+        </span>
       </div>
       <ul>
         {" "}

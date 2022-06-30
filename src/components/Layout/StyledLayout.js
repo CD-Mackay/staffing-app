@@ -1,12 +1,15 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-const StyledStaffCard = styled.section`
-width: 60vw;
-margin: 0 auto;
-background-color: white;
-height: 80vh;
-overflow-y: scroll;
-margin-top: 10vh;
+const StyledLayout = styled.section`
+  background-color: white;
+  height: 80vh;
+  margin: 0 auto;
+  margin-top: 15vh;
+  overflow-y: scroll;
+  width: 60vw;
+@media (min-width: 576px) {
+  margin-top: 10vh;
+}
 `;
 
-export default StyledStaffCard;
+export default StyledLayout;

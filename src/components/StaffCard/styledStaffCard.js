@@ -3,6 +3,7 @@ import styled from "styled-components";
 const StyledStaffCard = styled.div`
   background-color: ${(props) =>
     props.flag === "green" ? "#BDF0C9" : props.flag === "red" ? "#F0C9CD" : ""};
+  border-bottom: 2px solid gray;
   display: grid;
   grid-template-columns: 1fr 3fr;
   grid-template-rows: auto;
@@ -10,23 +11,22 @@ const StyledStaffCard = styled.div`
     "image header"
     "image info";
   width: 100%;
-  border-bottom: 2px solid gray;
   .image-wrapper {
     display: flex;
     flex-direction: column;
+    grid-area: image;
     justify-content: center;
     padding: 10px;
-    grid-area: image;
     img {
-      max-width: 20vw;
-      height: auto;
       border-radius: 500px;
+      height: auto;
+      max-width: 20vw;
     }
   }
 
   .employee-header {
-    grid-area: header;
     display: flex;
+    grid-area: header;
     justify-content: space-between;
     div {
       display: flex;
@@ -45,22 +45,22 @@ const StyledStaffCard = styled.div`
       border: 0px;
       margin-right: 15px;
     }
-    button:hover{ 
+    button:hover {
       cursor: pointer;
     }
   }
   .employee-info {
     display: flex;
     justify-content: space-between;
-    padding: 10px;
     grid-area: info;
+    padding: 10px;
     .flag-info {
       max-width: 150px;
     }
     ul {
-      list-style-type: none;
       display: flex;
       flex-wrap: wrap;
+      list-style-type: none;
     }
   }
 

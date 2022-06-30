@@ -2,10 +2,10 @@ import styled from "styled-components";
 
 const StyledSkillBadge = styled.li`
   background-color: gray;
-  margin: 2px;
   border-radius: 10px;
   display: flex;
   justify-content: space-between;
+  margin: 2px;
   max-width: 200px;
   span {
     margin: 5px;
