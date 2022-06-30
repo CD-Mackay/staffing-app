@@ -93,8 +93,11 @@ const TeamCard = ({ name, lead, team, id, deadline }) => {
           Deadline: <time>{deadline}</time>
         </span>
         <span>
-          Due in: <time>{timeTillDeadline.weeks} </time> weels and
-          <time> {timeTillDeadline.days}</time> days
+          Due in:{" "}
+          <time>
+            {timeTillDeadline.weeks} weeks and 
+            {" "} {timeTillDeadline.days}days
+          </time>{" "}
         </span>
       </div>
       <ul>

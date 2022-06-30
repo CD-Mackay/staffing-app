@@ -32,8 +32,12 @@ const StyledTeamCard = styled.div`
   .time {
     display: flex;
     flex-direction: column;
+    span {
+      font-weight: 500;
+    }
     time {
       margin: 5px;
+      font-weight: 400;
     }
   }
 `;
