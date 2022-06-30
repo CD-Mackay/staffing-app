@@ -20,6 +20,9 @@ const StyledHeader = styled.div`
   .nav {
     display: flex;
     padding: 5px;
+    a {
+      text-decoration: none;
+    }
     p {
       border: 1px solid gray;
       border-radius: 10px;
@@ -27,6 +30,10 @@ const StyledHeader = styled.div`
       margin: 2px;
       padding: 5px;
       text-decoration: none;
+    }
+    p:hover {
+      color: white;
+      background-color: gray;
     }
   }
 
