@@ -19,9 +19,6 @@ const FlagButton = ({ flag, setFlag, userId }) => {
   if (flag) {
     return (
       <StyledFlagButton>
-        {/* <button onClick={() => handleRemoveFlag(userId)}>
-          Remove Flag
-        </button> */}
         <Button
           handler={() => handleRemoveFlag(userId)}
           message="remove flag"
