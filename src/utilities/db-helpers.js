@@ -1,6 +1,8 @@
+const connectionString = 'https://staffing-app-8610f-default-rtdb.firebaseio.com'
+
 export async function getAllStaff() {
   const response = await fetch(
-    " https://staffing-app-8610f-default-rtdb.firebaseio.com/staff.json"
+    ` ${connectionString}/staff.json`
   );
   const data = await response.json();
 
@@ -18,7 +20,7 @@ export async function getAllStaff() {
 
 export async function getAllTeams() {
   const response = await fetch(
-    " https://staffing-app-8610f-default-rtdb.firebaseio.com/teams.json"
+    ` ${connectionString}/teams.json`
   );
   const data = await response.json();
 
@@ -36,7 +38,7 @@ export async function getAllTeams() {
 
 export async function addTeam(object) {
   const response = await fetch(
-    `https://staffing-app-8610f-default-rtdb.firebaseio.com/teams.json`,
+    `${connectionString}/teams.json`,
     {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -51,7 +53,7 @@ export async function addTeam(object) {
 
 export async function AddEmployee(object) {
   const response = await fetch(
-    `https://staffing-app-8610f-default-rtdb.firebaseio.com/staff.json`,
+    `${connectionString}/staff.json`,
     {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -66,7 +68,7 @@ export async function AddEmployee(object) {
 
 export async function deleteEmployee(userId) {
   const response = await fetch(
-    `https://staffing-app-8610f-default-rtdb.firebaseio.com/staff/${userId}.json`,
+    `${connectionString}/staff/${userId}.json`,
     {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
@@ -81,7 +83,7 @@ export async function deleteEmployee(userId) {
 
 export async function deleteTeam(teamId) {
   const response = await fetch(
-    `https://staffing-app-8610f-default-rtdb.firebaseio.com/teams/${teamId}.json`,
+    `${connectionString}/teams/${teamId}.json`,
     {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
@@ -96,7 +98,7 @@ export async function deleteTeam(teamId) {
 
 export async function addFlag(flag, userId) {
   const response = await fetch(
-    `https://staffing-app-8610f-default-rtdb.firebaseio.com/staff/${userId}.json`,
+    `${connectionString}/staff/${userId}.json`,
     {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
@@ -110,7 +112,7 @@ export async function addFlag(flag, userId) {
 
 export async function updateSKill(userId, skills) {
   const response = await fetch(
-    `https://staffing-app-8610f-default-rtdb.firebaseio.com/staff/${userId}.json`,
+    `${connectionString}/staff/${userId}.json`,
     {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
@@ -124,7 +126,7 @@ export async function updateSKill(userId, skills) {
 
 export async function updateTeam(teamId, teamList) {
   const response = await fetch(
-    `https://staffing-app-8610f-default-rtdb.firebaseio.com/teams/${teamId}.json`,
+    `${connectionString}/teams/${teamId}.json`,
     {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
