@@ -29,7 +29,7 @@ const SearchBar = ({
         />
       </div>
       <div id="select-input">
-        <label htmlFor="parameters">search by...</label>
+        <label htmlFor="parameters">search by</label>
         <select
           name="parameters"
           value={parameter}

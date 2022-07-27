@@ -15,6 +15,7 @@ const TeamCard = ({ name, lead, team, id, deadline }) => {
   const { setAlert } = alertObject;
 
   const timeTillDeadline = dateCountDown(deadline);
+  const { days, weeks } = timeTillDeadline;
 
   const handleRemoveFromTeam = (employeeId, employeeName) => {
     let teamListing = [...team];
@@ -48,7 +49,7 @@ const TeamCard = ({ name, lead, team, id, deadline }) => {
     setAlert({
       message: (
         <span>
-          This is permanent, are you sure?{" "}
+          Confirm delete?{" "}
           <Button handler={() => handleDeleteTeam(id, name)} message="oui" />
           <Button handler={() => setAlert("")} message="non" />
         </span>
@@ -88,26 +89,30 @@ const TeamCard = ({ name, lead, team, id, deadline }) => {
         </h5>
         <Button handler={() => confirmDeleteTeam()} message="delete team" />
       </div>
-      <div className="time">
-        <span>
-          Deadline: <time>{deadline}</time>
-        </span>
-        <span>
-          Due in:{" "}
-          <time>
-            {timeTillDeadline.weeks} weeks and 
-            {" "} {timeTillDeadline.days}days
-          </time>{" "}
-        </span>
+      <div className="team-grid">
+        <div className="time">
+          <span>
+            Deadline: <time>{deadline}</time>
+          </span>
+          <span>
+            Due in:{" "}
+            <time>
+              {weeks} week{weeks <= 1 ? "" : "s"} and {days} day
+              {days <= 1 ? "" : "s"}
+            </time>{" "}
+          </span>
+        </div>
+        <ul>
+          {" "}
+          {team &&
+            teamState.map((element, index) => {
+              return (
+                <Listing key={index} id={element.id} name={element.name} />
+              );
+            })}
+          {!team && <li>No members in this team</li>}
+        </ul>
       </div>
-      <ul>
-        {" "}
-        {team &&
-          teamState.map((element, index) => {
-            return <Listing key={index} id={element.id} name={element.name} />;
-          })}
-        {!team && <li>No members in this team</li>}
-      </ul>
     </StyledTeamCard>
   );
 };

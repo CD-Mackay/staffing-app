@@ -15,10 +15,18 @@ const StyledTeamCard = styled.div`
     justify-content: space-between;
   }
 
+  .team-grid {
+    display: flex;
+    flex-direction: column;
+    ul {
+      margin: 0px;
+    }
+  }
+
   .employee-listing {
     display: flex;
     justify-content: space-between;
-    margin: 10px;
+    margin-top: 10px;
     max-width: 200px;
     div {
       display: flex;
@@ -32,12 +40,20 @@ const StyledTeamCard = styled.div`
   .time {
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
     span {
       font-weight: 500;
     }
     time {
       margin: 5px;
       font-weight: 400;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .team-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
     }
   }
 `;

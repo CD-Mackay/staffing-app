@@ -11,12 +11,13 @@ const StyledSearchBar = styled.div`
   padding: 5px;
   position: fixed;
   top: 5vh;
+  width: 94vw;
   input {
     border-radius: 5px;
     border: none;
     font-size: 20px;
     line-height: 1.5;
-    width: 80%;
+    width: 98%;
   }
 
   #select-input {
@@ -27,11 +28,15 @@ const StyledSearchBar = styled.div`
     }
   }
 
+  @media (min-width: 768px) {
+    width: 89vw;
+  }
+
   @media (min-width: 992px) {
+    width: 890px;
     top: 10vh;
     input {
       font-size: 22px;
-      width: 90%;
     }
   }
 `;

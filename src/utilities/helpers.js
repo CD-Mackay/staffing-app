@@ -29,7 +29,7 @@ export const filterBySkills = (array, parameter) => {
 export const filterById = (array, parameter) => {
   return array.filter((employee) => {
     return employee.id === parameter;
-  });
+  })
 };
 
 export const dateCountDown = (deadline) => {
@@ -38,7 +38,6 @@ export const dateCountDown = (deadline) => {
   const difference = dateStamp - current;
   const minutes = difference / 60000;
   let weeks = minutes / 10080;
-  console.log(weeks);
   let days = (minutes % 10080) / 1440;
   days = Math.floor(days);
   weeks = Math.floor(weeks);
