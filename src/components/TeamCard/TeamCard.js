@@ -7,7 +7,6 @@ import { dateCountDown } from "../../utilities/helpers";
 
 import StyledTeamCard from "./StyledTeamCard";
 import { useNavigate } from "react-router-dom";
-import moment from "moment";
 
 const TeamCard = ({ name, lead, team, id, deadline }) => {
   const navigate = useNavigate();
@@ -90,25 +89,30 @@ const TeamCard = ({ name, lead, team, id, deadline }) => {
         </h5>
         <Button handler={() => confirmDeleteTeam()} message="delete team" />
       </div>
-      <div className="time">
-        <span>
-          Deadline: <time>{deadline}</time>
-        </span>
-        <span>
-          Due in:{" "}
-          <time>
-            {weeks} week{weeks <= 1 ? "" : "s"} and {days} day{days <= 1 ? "" : "s"}
-          </time>{" "}
-        </span>
+      <div className="team-grid">
+        <div className="time">
+          <span>
+            Deadline: <time>{deadline}</time>
+          </span>
+          <span>
+            Due in:{" "}
+            <time>
+              {weeks} week{weeks <= 1 ? "" : "s"} and {days} day
+              {days <= 1 ? "" : "s"}
+            </time>{" "}
+          </span>
+        </div>
+        <ul>
+          {" "}
+          {team &&
+            teamState.map((element, index) => {
+              return (
+                <Listing key={index} id={element.id} name={element.name} />
+              );
+            })}
+          {!team && <li>No members in this team</li>}
+        </ul>
       </div>
-      <ul>
-        {" "}
-        {team &&
-          teamState.map((element, index) => {
-            return <Listing key={index} id={element.id} name={element.name} />;
-          })}
-        {!team && <li>No members in this team</li>}
-      </ul>
     </StyledTeamCard>
   );
 };

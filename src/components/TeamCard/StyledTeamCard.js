@@ -10,9 +10,18 @@ const StyledTeamCard = styled.div`
     list-style-type: none;
   }
 
+
   .team-header {
     display: flex;
     justify-content: space-between;
+  }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+     ul {
+       margin: 0px;
+     }
   }
 
   .employee-listing {
@@ -32,6 +41,7 @@ const StyledTeamCard = styled.div`
   .time {
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
     span {
       font-weight: 500;
     }

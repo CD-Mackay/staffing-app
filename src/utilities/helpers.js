@@ -1,5 +1,3 @@
-
-
 export const filterByName = (array, parameter) => {
   return array.filter((employee) => {
     return employee.name.toLowerCase().includes(parameter.toLowerCase());
