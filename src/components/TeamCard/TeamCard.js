@@ -49,7 +49,7 @@ const TeamCard = ({ name, lead, team, id, deadline }) => {
     setAlert({
       message: (
         <span>
-          This is permanent, are you sure?{" "}
+          Confirm delete?{" "}
           <Button handler={() => handleDeleteTeam(id, name)} message="oui" />
           <Button handler={() => setAlert("")} message="non" />
         </span>
