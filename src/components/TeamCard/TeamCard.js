@@ -7,6 +7,7 @@ import { dateCountDown } from "../../utilities/helpers";
 
 import StyledTeamCard from "./StyledTeamCard";
 import { useNavigate } from "react-router-dom";
+import moment from "moment";
 
 const TeamCard = ({ name, lead, team, id, deadline }) => {
   const navigate = useNavigate();
@@ -95,8 +96,7 @@ const TeamCard = ({ name, lead, team, id, deadline }) => {
         <span>
           Due in:{" "}
           <time>
-            {timeTillDeadline.weeks} weeks and 
-            {" "} {timeTillDeadline.days}days
+            {timeTillDeadline.weeks} weeks and {timeTillDeadline.days}days
           </time>{" "}
         </span>
       </div>
