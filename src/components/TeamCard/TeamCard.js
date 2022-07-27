@@ -16,6 +16,7 @@ const TeamCard = ({ name, lead, team, id, deadline }) => {
   const { setAlert } = alertObject;
 
   const timeTillDeadline = dateCountDown(deadline);
+  const { days, weeks } = timeTillDeadline;
 
   const handleRemoveFromTeam = (employeeId, employeeName) => {
     let teamListing = [...team];
@@ -96,7 +97,7 @@ const TeamCard = ({ name, lead, team, id, deadline }) => {
         <span>
           Due in:{" "}
           <time>
-            {timeTillDeadline.weeks} weeks and {timeTillDeadline.days}days
+            {weeks} week{weeks <= 1 ? "" : "s"} and {days} day{days <= 1 ? "" : "s"}
           </time>{" "}
         </span>
       </div>
